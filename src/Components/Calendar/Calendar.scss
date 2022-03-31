@@ -1,0 +1,179 @@
+@import '../MainTheme.scss';
+
+$neighboring-bg: darken($bg-color, 5%);
+$bg-disabled: darken($bg-color, 8%);
+$border-color: darken($bg-color, 7%);
+$hover-color: #26c9c9;
+$selected-color: lighten($hover-color, 10%);
+
+$new-banner: #923120;
+$new-banner-neighboring: darken($new-banner, 5%);
+$new-banner-disabled: darken($new-banner, 15%);
+
+$abyss-reset: #158161;
+$abyss-reset-neighboring: darken($abyss-reset, 5%);
+$abyss-reset-disabled: darken($abyss-reset, 15%);
+
+.react-calendar {
+    width: 350px;
+    max-width: 100%;
+    border: 1px solid $border-color;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: darken($bg-color, 0.3);
+    line-height: 1.125em;
+  }
+  .react-calendar--doubleView {
+    width: 700px;
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer > * {
+    width: 50%;
+    margin: 0.5em;
+  }
+  .react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none;
+  }
+  .react-calendar,
+  .react-calendar *,
+  .react-calendar *:before,
+  .react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+  }
+  .react-calendar button:enabled:hover {
+    cursor: pointer;
+  }
+  .react-calendar__navigation {
+    display: flex;
+    height: 44px;
+    margin-bottom: 1em;
+  }
+  .react-calendar__navigation__prev-button:disabled {
+    visibility: hidden;
+  }
+  .react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+    font-weight: bold;
+    color: white;
+  }
+  .react-calendar__navigation__next2-button {
+    visibility: hidden;
+  }
+  .react-calendar__navigation__prev2-button {
+    visibility: hidden;
+  }
+  .react-calendar__navigation button {
+    background-color: darken($bg-color, 0.3)
+  }
+  .react-calendar__navigation button:enabled:hover{
+    background-color: lighten($bg-color, 5);
+  }
+  .react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75em;
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em;
+  }
+  .react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    font-weight: bold;
+  }
+  .react-calendar__month-view__days__day {
+    background-color: $bg-color;
+    color: white;
+  }
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: darken(white, 40%);
+    background-color: $neighboring-bg
+  }
+  .react-calendar__month-view__days__day--neighboringMonth.abyssReset {
+    background-color: $abyss-reset-neighboring
+  }
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+  }
+  .react-calendar__tile {
+    max-width: 100%;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    line-height: 16px;
+    position: relative
+  }
+  .react-calendar__tile:disabled {
+    background-color: $bg-disabled;
+    color: darken(white, 60%);
+  }
+  .react-calendar__tile.newBanner {
+    background-color: $new-banner
+  }
+  .react-calendar__tile.newBanner:disabled {
+    background-color: $new-banner-disabled
+  }
+  .abyssReset {
+    background-color: $abyss-reset
+  }
+  .abyssReset:disabled {
+    background-color: $abyss-reset-disabled
+  }
+  .abyssReset.newBanner {
+    background-image: linear-gradient(to bottom right, $abyss-reset, $abyss-reset 45%, $new-banner 55%, $new-banner)
+  }
+  .abyssReset.newBanner:disabled {
+    background-image: linear-gradient(to bottom right, $abyss-reset-disabled, $abyss-reset-disabled 45%, $new-banner-disabled 55%, $new-banner-disabled)
+  }
+  .react-calendar__month-view__days__day--neighboringMonth.abyssReset.newBanner {
+    background-image: linear-gradient(to bottom right, $abyss-reset-neighboring, $abyss-reset-neighboring 45%, $new-banner-neighboring 55%, $new-banner-neighboring)
+  }
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background-color: $hover-color;
+    background-image: none;
+    color: white;
+    font-weight: normal;
+  }
+  .react-calendar__tile--now {
+    background: lighten($bg-color, 20%);
+  }
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    background: $hover-color;
+  }
+  .react-calendar__tile--hasActive {
+    background: $selected-color;
+  }
+  .react-calendar__tile--hasActive:enabled:hover,
+  .react-calendar__tile--hasActive:enabled:focus {
+    background: $selected-color;
+  }
+  .react-calendar__tile--active {
+    background-color: $selected-color !important;
+    background-image: none !important;
+    color: white !important;
+    font-weight: normal;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background: $hover-color;
+  }
+  

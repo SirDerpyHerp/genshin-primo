@@ -1,0 +1,53 @@
+{
+    "OutsideCanvas": {
+        "start": "2022-04-01",
+        "end": "2022-04-11",
+        "name": "Outside the Canvas, Inside the Lens",
+        "color": "#5045b0",
+        "primos": 420,
+        "eventDur": 7
+    },
+    "HuesOfViolet": {
+        "start": "2022-04-07",
+        "end": "2022-04-25",
+        "name": "Hues of the Violet Garden",
+        "color": "#ba2d68",
+        "primos": 980,
+        "average": true,
+        "estimated": true
+    },
+    "AyaTestRun": {
+        "start": "2022-04-20",
+        "end": "2022-04-20",
+        "name": "Ayaka Test Run",
+        "color": "#1aa5db",
+        "primos": 20,
+        "rushable": true
+    },
+    "Spices": {
+        "start": "2022-05-10",
+        "end": "2022-05-10",
+        "name": "Spices From The West",
+        "color": "#5c8744",
+        "primos": 420,
+        "rushable": true,
+        "unknown": true
+    },
+    "VibroCrystal": {
+        "start": "2022-05-10",
+        "end": "2022-05-10",
+        "name": "Vibro-Crystal Research",
+        "color": "#294bc4",
+        "primos": 420,
+        "rushable": true,
+        "unknown": true
+    },
+    "2.7Update": {
+        "start": "2022-05-11",
+        "end": "2022-05-11",
+        "name": "2.7 Codes + Compensation",
+        "color": "#9e7c42",
+        "primos": 900,
+        "rushable": true
+    }
+}
