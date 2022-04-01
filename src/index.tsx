@@ -5,7 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 import { CssBaseline, StyledEngineProvider, ThemeProvider } from '@mui/material'
 import theme from './Theme'
-import './i18n'
+//import './i18n'
 import './global.d'
 
 ReactDOM.render(

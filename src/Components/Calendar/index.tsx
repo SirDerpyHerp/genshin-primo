@@ -40,15 +40,6 @@ function get_tom() {
     return tom
 }
 
-function get_dur(e: any) {
-    if (e.start && e.end) {
-        return (new Date(e.end).valueOf() - new Date(e.start).valueOf())
-    } else {
-        alert(`${e}`)
-        return 0
-    }
-}
-
 let eventHeight: {[key: string]: number} = {}
 export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
     const [tileHeight, setTileHeight] = useState(0)
@@ -91,11 +82,9 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
 
                         Object.entries(Events).forEach(e => {
 
-                            if ((eventStart <= new Date(e[1].end).valueOf()
-                                && eventStart >= new Date(e[1].start).valueOf()) ||
-                                (eventEnd >= new Date(e[1].start).valueOf()
-                                && eventEnd <= new Date(e[1].end).valueOf()) &&
-                                event[0] !== e[0]) {
+                            if ((eventStart <= new Date(e[1].end).valueOf() && eventStart >= new Date(e[1].start).valueOf()) ||
+                                (eventEnd >= new Date(e[1].start).valueOf() && eventEnd <= new Date(e[1].end).valueOf()) &&
+                                (event[0] !== e[0])) {
                                 
                                 if (e[0] in eventHeight) {
                                     incompatibleLanes[eventHeight[e[0]]] = true
