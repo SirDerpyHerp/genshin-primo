@@ -126,18 +126,19 @@ function App() {
         setAbyssFloors(newAbyss)
     }
 
-    type Event = {
+    interface Event {
         start: Date
         end: Date
         totalDur: number
         name: string
         color: string
-        primos: number
+        primos: number | number[]
         eventDur?: number
         rushable?: boolean
         average?: boolean
     }
 
+    // Calc primos
     useEffect(() => {
         let checkDay = today
         let welkinDaysLeft = welkinDays
@@ -196,21 +197,30 @@ function App() {
             // Events
             events.forEach(e => {
                 if (checkDay.valueOf() >= e.start.valueOf() && checkDay.valueOf() <= e.end.valueOf()) {
-                    if (e.rushable && checkDay.valueOf() === e.start.valueOf()) {
-                        increment(e.name, e.primos)
-                        return
-                    }
-
-                    if (e.eventDur) {
-                        if ((checkDay.valueOf() - e.start.valueOf())/DAY_IN_MS < e.eventDur) {
-                            increment(e.name, e.primos/e.eventDur)
+                    if (typeof e.primos === 'number') {
+                        if (e.rushable && checkDay.valueOf() === e.start.valueOf()) {
+                            increment(e.name, e.primos)
                             return
                         }
-                    }
 
-                    if (e.average) {
-                        increment(e.name, e.primos/e.totalDur)
-                        return
+                        if (e.eventDur) {
+                            if ((checkDay.valueOf() - e.start.valueOf())/DAY_IN_MS < e.eventDur) {
+                                increment(e.name, e.primos/e.eventDur)
+                                return
+                            }
+                        }
+
+                        if (e.average) {
+                            increment(e.name, e.primos/e.totalDur)
+                            return
+                        }
+                    } else if (typeof e.primos === 'object') {
+                        const eventDay = (checkDay.valueOf() - e.start.valueOf())/DAY_IN_MS
+
+                        if (e.primos.length-1 >= eventDay) {
+                            console.log(e.primos[eventDay], e.primos.length, eventDay)
+                            increment(e.name, e.primos[eventDay])
+                        }
                     }
                 }
             })
@@ -231,6 +241,7 @@ function App() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [welkinDays, bpLvl, day, abyssFloors, bpCheck, welkinCheck]) 
 
+    // Initiate legends
     useEffect(() => {
         updateLegend()
     })

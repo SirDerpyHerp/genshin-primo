@@ -12,9 +12,17 @@
         "end": "2022-04-25",
         "name": "Hues of the Violet Garden",
         "color": "#ba2d68",
-        "primos": 980,
-        "average": true,
-        "estimated": true
+        "primos": [
+            120,
+            40,
+            160,
+            40,
+            200,
+            80,
+            200,
+            40,
+            40
+        ]
     },
     "AyaTestRun": {
         "start": "2022-04-20",
