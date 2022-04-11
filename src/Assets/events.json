@@ -13,14 +13,14 @@
         "name": "Hues of the Violet Garden",
         "color": "#ba2d68",
         "primos": [
-            120,
+            120, 
             40,
             180,
             60,
             220,
             140,
             200,
-            40,
+            120,
             40
         ]
     },
