@@ -1,12 +1,4 @@
 {
-    "OutsideCanvas": {
-        "start": "2022-04-01",
-        "end": "2022-04-11",
-        "name": "Outside the Canvas, Inside the Lens",
-        "color": "#5045b0",
-        "primos": 420,
-        "eventDur": 7
-    },
     "HuesOfViolet": {
         "start": "2022-04-07",
         "end": "2022-04-25",
@@ -31,6 +23,15 @@
         "primos": 20,
         "rushable": true
     },
+    "VibroCrystal": {
+        "start": "2022-04-21",
+        "end": "2022-05-05",
+        "name": "Vibro-Crystal Research",
+        "color": "#294bc4",
+        "primos": 420,
+        "eventDur": 7,
+        "rushable": true
+    },
     "Spices": {
         "start": "2022-05-10",
         "end": "2022-05-10",
@@ -38,16 +39,7 @@
         "color": "#5c8744",
         "primos": 420,
         "rushable": true,
-        "unknown": true
-    },
-    "VibroCrystal": {
-        "start": "2022-05-10",
-        "end": "2022-05-10",
-        "name": "Vibro-Crystal Research",
-        "color": "#294bc4",
-        "primos": 420,
-        "rushable": true,
-        "unknown": true
+        "undated": true
     },
     "2.7Update": {
         "start": "2022-05-11",

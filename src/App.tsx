@@ -30,7 +30,7 @@ function App() {
     const [expectedPrimos, setExpectedPrimos] = React.useState(0)
     const [welkinDays, setWelkinDays] = React.useState(0)
     const [bpLvl, setBpLvl] = React.useState(0)
-    const [hasUnknownEvent, setUnknownEvent] = React.useState(false)
+    const [hasUndatedEvent, setUndatedEvent] = React.useState(false)
     const [hasEstimated, setEstimated] = React.useState(false)
     const [abyssFloors, setAbyssFloors] = React.useState([0, 0, 0, 0])
     const [primoSources, setPrimoSources] = React.useState(new MapZeroDefault())
@@ -77,7 +77,7 @@ function App() {
     
     const updateLegend = () => {
         let eventsCount: {[key: string]: [number, number]} = {}
-        let unknownEvent = false
+        let undatedEvent = false
         let estimated = false
 
         Object.entries(Events).forEach(event => {
@@ -85,7 +85,7 @@ function App() {
     
             if (tags.length > 0) {
                 if (event[1].hasOwnProperty('estimated')) { estimated = true }
-                if (event[1].hasOwnProperty('unknown')) { unknownEvent = true }
+                if (event[1].hasOwnProperty('undated')) { undatedEvent = true }
                 if (tags.item(0)) {
                     eventsCount[event[0]] = [tags.length, (getHeight(tags.item(0)))]
                 }
@@ -94,7 +94,7 @@ function App() {
             }
         })
 
-        setUnknownEvent(unknownEvent)
+        setUndatedEvent(undatedEvent)
         setEstimated(estimated)
     
         let maxHeight = 0
@@ -346,7 +346,7 @@ function App() {
                                 hasEstimated ? <Grid item xs={12}><Typography textAlign='center' fontSize='0.7rem'>Unfinished main events use the average amount of primos from previous patches</Typography></Grid> : null
                             }
                             {
-                                hasUnknownEvent ? <Grid item xs={12}><Typography textAlign='center' fontSize='0.7rem'>Undated events are placed on the end of patches for simplicity</Typography></Grid> : null
+                                hasUndatedEvent ? <Grid item xs={12}><Typography textAlign='center' fontSize='0.7rem'>Undated events are placed on the end of patches for simplicity</Typography></Grid> : null
                             }
                         </Grid>
                         <Box height={'1em'}></Box>
