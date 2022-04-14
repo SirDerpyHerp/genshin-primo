@@ -1,6 +1,6 @@
 {
   "name": "genshin-primo",
-  "version": "0.1.4",
+  "version": "0.1.4.1",
   "private": true,
   "homepage": "http://sirderpyherp.github.io/genshin-primo",
   "dependencies": {
