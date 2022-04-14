@@ -31,6 +31,14 @@
         "primos": 420,
         "eventDur": 7
     },
+    "Marvelous": {
+        "start": "2022-05-06",
+        "end": "2022-05-12",
+        "name": "Marvelous Merchandise",
+        "color": "#3e5e28",
+        "primos": 420,
+        "eventDur": 7
+    },
     "Spices": {
         "start": "2022-05-10",
         "end": "2022-05-10",
@@ -39,14 +47,6 @@
         "primos": 420,
         "rushable": true,
         "undated": true
-    },
-    "Marvelous": {
-        "start": "2022-05-06",
-        "end": "2022-05-12",
-        "name": "Marvelous Merchandise",
-        "color": "#3e5e28",
-        "primos": 420,
-        "eventDur": 7
     },
     "2.7Update": {
         "start": "2022-05-11",
