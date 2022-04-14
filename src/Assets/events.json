@@ -40,6 +40,14 @@
         "rushable": true,
         "undated": true
     },
+    "Marvelous": {
+        "start": "2022-05-06",
+        "end": "2022-05-13",
+        "name": "Marvelous Merchandise",
+        "color": "#5c8744",
+        "primos": 420,
+        "eventDur": 7
+    },
     "2.7Update": {
         "start": "2022-05-11",
         "end": "2022-05-11",
