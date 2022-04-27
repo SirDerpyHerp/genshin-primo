@@ -39,15 +39,6 @@
         "primos": 280,
         "eventDur": 7
     },
-    "Spices": {
-        "start": "2022-05-10",
-        "end": "2022-05-10",
-        "name": "Spices From The West",
-        "color": "#5c8744",
-        "primos": 420,
-        "rushable": true,
-        "undated": true
-    },
     "2.7Code": {
         "start": "2022-04-29",
         "end": "2022-04-29",
