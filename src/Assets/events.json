@@ -38,21 +38,5 @@
         "color": "#3e5e28",
         "primos": 280,
         "eventDur": 7
-    },
-    "2.7Code": {
-        "start": "2022-04-29",
-        "end": "2022-04-29",
-        "name": "2.7 Livestream Codes",
-        "color": "#e69409",
-        "primos": 300,
-        "rushable": true
-    },
-    "2.7Update": {
-        "start": "2022-05-11",
-        "end": "2022-05-11",
-        "name": "2.7 Compensation",
-        "color": "#9e7c42",
-        "primos": 600,
-        "rushable": true
     }
 }
