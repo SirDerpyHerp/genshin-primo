@@ -55,7 +55,8 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
         }
         
         if ((new Date(2022, 2, 30).getTime() - date.getTime())/86400000 % 21 === 0) { // Use start of 2.6 
-            res.push('newBanner')
+            //res.push('newBanner')
+            // Remove New Banner cause of delay
         }
 
         return res

@@ -342,6 +342,7 @@ function App() {
                                     </Grid>
                                 })
                             }
+                            <Grid item xs={12}><Typography textAlign='center' fontSize='0.7rem'>No dates for New Banners as the delay duration is currently unknown</Typography></Grid>
                             {
                                 hasEstimated ? <Grid item xs={12}><Typography textAlign='center' fontSize='0.7rem'>Unfinished main events use the average amount of primos from previous patches</Typography></Grid> : null
                             }
