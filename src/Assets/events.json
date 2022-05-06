@@ -36,7 +36,14 @@
         "end": "2022-05-12",
         "name": "Marvelous Merchandise",
         "color": "#3e5e28",
-        "primos": 280,
-        "eventDur": 7
+        "primos": [
+            40, 
+            40,
+            40,
+            40,
+            140,
+            40,
+            40
+        ]
     }
 }
