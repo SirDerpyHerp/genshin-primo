@@ -150,6 +150,7 @@ function App() {
             expected += val
             sources.inc(key, val)
         }
+        const abyssStars = abyssFloors.reduce((a, b) => a+b)
 
         let events = [...Object.entries(Events).map(e => {
             let event = {...e[1], start: to_utc(new Date(e[1].start)), end: to_utc(new Date(e[1].end))} as Event
@@ -169,8 +170,7 @@ function App() {
 
             // Abyss
             if (checkDay.getDate() === 1 || checkDay.getDate() === 16) {
-                const stars = abyssFloors.reduce((a, b) => a+b)
-                increment('Abyss', 50 * Math.floor(stars/3))
+                increment('Abyss', 50 * Math.floor(abyssStars/3))
             }
 
             // BP
@@ -182,6 +182,11 @@ function App() {
                     increment('Battle Pass', 680)
                     currentBPLvl += 10
                 }
+            }
+
+            // 2.7 Compensation
+            if (checkDay.getDay() === 3) {
+                increment('2.7 Compensation', 400)
             }
 
             // Paimon's Bargains
@@ -306,6 +311,7 @@ function App() {
                                     if (value > 0){
                                         return [<Grid item xs={9}>{key}</Grid>, <Grid item xs='auto'>{Math.ceil(value)} <Primogem/></Grid>]
                                     }
+                                    return null
                                 })
                             }
                         </Grid>
