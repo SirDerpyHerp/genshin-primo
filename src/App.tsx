@@ -184,8 +184,8 @@ function App() {
                 }
             }
 
-            // 2.7 Compensation
-            if (checkDay.getDay() === 3) {
+            // Last 2.7 Compensation
+            if (checkDay.getTime() === to_utc(new Date(2022, 5-1, 25)).getTime()) {
                 increment('2.7 Compensation', 400)
             }
 
@@ -348,7 +348,6 @@ function App() {
                                     </Grid>
                                 })
                             }
-                            <Grid item xs={12}><Typography textAlign='center' fontSize='0.7rem'>No dates for New Banners as the delay duration is currently unknown</Typography></Grid>
                             {
                                 hasEstimated ? <Grid item xs={12}><Typography textAlign='center' fontSize='0.7rem'>Unfinished main events use the average amount of primos from previous patches</Typography></Grid> : null
                             }

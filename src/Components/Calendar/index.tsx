@@ -54,9 +54,10 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
             res.push('abyssReset')
         }
         
-        if ((new Date(2022, 2, 30).getTime() - date.getTime())/86400000 % 21 === 0) { // Use start of 2.6 
-            //res.push('newBanner')
-            // Remove New Banner cause of delay
+        if ((date.getTime() > new Date(2022, 5-1, 30).getTime()) && ((date.getTime() === new Date(2022, 5-1, 31).getTime()) ||
+            ((new Date(2022, 7-1, 13).getTime() - date.getTime())/86400000 % 21 === 0 &&
+            (date.getTime() !== new Date(2022, 6-1, 1).getTime())))) { // Use start of 2.8, add exception for 2.7
+            res.push('newBanner')
         }
 
         return res
