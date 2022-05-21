@@ -15,6 +15,42 @@
             80
         ]
     },
+    "PerilousTrail": {
+        "start": "2022-07-12",
+        "end": "2022-07-12",
+        "name": "Perilous Trail",
+        "color": "#5c8ead",
+        "primos": 956,
+        "estimated": true,
+        "average": true
+    },
+    "MuddyAdventure": {
+        "start": "2022-07-12",
+        "end": "2022-07-12",
+        "name": "A Muddy Bizzare Adventure",
+        "color": "#511385",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "AratakiDrumalong": {
+        "start": "2022-07-12",
+        "end": "2022-07-12",
+        "name": "The Almighty Arataki Great and Glorious Drumalong Festival",
+        "color": "#785c43",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "CoreApparatus": {
+        "start": "2022-07-12",
+        "end": "2022-07-12",
+        "name": "Core of the Apparatus",
+        "color": "#b3ad0c",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
     "Spices": {
         "start": "2022-05-14",
         "end": "2022-06-06",
