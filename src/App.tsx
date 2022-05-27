@@ -309,7 +309,7 @@ function App() {
                             {
                                 Array.from(primoSources).map(([key, value]) => {
                                     if (value > 0){
-                                        return [<Grid item xs={9}>{key}</Grid>, <Grid item xs='auto'>{Math.ceil(value)} <Primogem/></Grid>]
+                                        return [<Grid item xs={9}>{key}</Grid>, <Grid item xs='auto'>{Math.floor(value)} <Primogem/></Grid>]
                                     }
                                     return null
                                 })
