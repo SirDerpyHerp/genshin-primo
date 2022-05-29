@@ -28,6 +28,7 @@ function App() {
     const [bpCheck, setBp] = React.useState(false)
     const [welkinCheck, setWelkin] = React.useState(false)
     const [expectedPrimos, setExpectedPrimos] = React.useState(0)
+    const [currentPrimos, setCurrentPrimos] = React.useState(0)
     const [welkinDays, setWelkinDays] = React.useState(0)
     const [bpLvl, setBpLvl] = React.useState(0)
     const [hasUndatedEvent, setUndatedEvent] = React.useState(false)
@@ -237,55 +238,44 @@ function App() {
                 return b[1] - a[1];
               })
           )
-        setExpectedPrimos(expected)
+        setExpectedPrimos(expected + (currentPrimos || 0))
         setPrimoSources(sources)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [welkinDays, bpLvl, day, abyssFloors, bpCheck, welkinCheck]) 
+    }, [welkinDays, bpLvl, day, abyssFloors, bpCheck, welkinCheck, currentPrimos]) 
 
     // Initiate legends
     useEffect(() => {
         updateLegend()
     })
+
     return <Grid container spacing={3} sx={{ justifyContent: 'center', paddingTop: '25px', paddingBottom: '25px', minHeight: 'calc(100vh - 52px)' }}>
         <Grid item xs={12} sm={2.75+1.5}>
-            <Grid container spacing={3} justifyContent='center'>
-                <Grid item xs={12} sm={2.75/(2.75+1.5) * 12}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <Card>
-                                <CardHeader title="Paid Options" sx={{ textAlign: 'center' }}/>
-                                <Divider/>
-                                <CardContent>
-                                    <Grid container spacing={1}>
-                                        <Grid item xs={5}><FormControlLabel control={<Checkbox onChange={(e) => setWelkin(e.target.checked)}/>} label="Welkin?"/></Grid>
-                                        <Grid item xs={7}><TextField label='Days of Welkin Left' disabled={!welkinCheck} type='number' onChange={(e) => {
-                                            e.target.value = sanitizeWelkinInput(e.target.value).toString()
-                                            setWelkinDays(parseInt(e.target.value))
-                                        }}/></Grid>
-                                        <Grid item xs={5}><FormControlLabel control={<Checkbox onChange={(e) => setBp(e.target.checked)}/>} label="Paid BP?"/></Grid>
-                                        <Grid item xs={7}><TextField label='Current BP Level' disabled={!bpCheck} type={'number'} onChange={(e) => {
-                                            e.target.value = sanitizeBPInput(e.target.value).toString()
-                                            setBpLvl(parseInt(e.target.value))
-                                        }}/></Grid>
-                                    </Grid>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Card sx={{textAlign: 'center'}}>
-                                <Grid container>
-                                    <Grid item xs={12}>
-                                        <Typography padding='16px' paddingBottom='12px'>Estimated Primogems: {Math.floor(expectedPrimos)} <Primogem/> ({Math.floor(expectedPrimos/160)} pulls)</Typography>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Typography padding='16px' paddingTop='0px' fontSize='0.8rem'>This doesn't count quests or exploration, unless they're part of events like Golden Apple and Three Realms</Typography>
-                                    </Grid>
-                                </Grid>
-                            </Card>
-                        </Grid>
-                    </Grid>
+            <Grid container spacing={2} justifyContent='center'>
+                <Grid item xs={12} sm={6}> {/* Options */}
+                    <Card>
+                        <CardHeader title="Options" sx={{ textAlign: 'center' }}/>
+                        <Divider/>
+                        <CardContent>
+                            <Grid container spacing={1}>
+                                <Grid item xs={12}><TextField label='Current Primogems' type={'number'} onChange={(e) => {
+                                    e.target.value = sanitizeNumberInput(e.target.value).toString()
+                                    setCurrentPrimos(parseInt(e.target.value))
+                                }} sx={{ textAlign: 'center' }} fullWidth/></Grid>
+                                <Grid item xs={5}><FormControlLabel control={<Checkbox onChange={(e) => setWelkin(e.target.checked)}/>} label="Welkin?"/></Grid>
+                                <Grid item xs={7}><TextField label='Days of Welkin Left' disabled={!welkinCheck} type='number' onChange={(e) => {
+                                    e.target.value = sanitizeWelkinInput(e.target.value).toString()
+                                    setWelkinDays(parseInt(e.target.value))
+                                }} fullWidth/></Grid>
+                                <Grid item xs={5}><FormControlLabel control={<Checkbox onChange={(e) => setBp(e.target.checked)}/>} label="Paid BP?"/></Grid>
+                                <Grid item xs={7}><TextField label='Current BP Level' disabled={!bpCheck} type={'number'} onChange={(e) => {
+                                    e.target.value = sanitizeBPInput(e.target.value).toString()
+                                    setBpLvl(parseInt(e.target.value))
+                                }} fullWidth/></Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
                 </Grid>
-                <Grid item xs={12} sm={1.5/(2.75+1.5) * 12}>
+                <Grid item xs={12} sm={6}> {/* Abyss */}
                     <Card>
                         <CardHeader title={"Abyss"} sx={{ textAlign: 'center' }}/>
                         <Divider/>
@@ -297,7 +287,19 @@ function App() {
                         </CardContent>
                     </Card>
                 </Grid>
-                {expectedPrimos > 0 ? <Grid item xs={12}>
+                <Grid item xs={12}> {/* Expected Primogems */}
+                    <Card sx={{textAlign: 'center'}}>
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <Typography padding='16px' paddingBottom='12px'>Estimated Primogems: {Math.floor(expectedPrimos)} <Primogem/> ({Math.floor(expectedPrimos/160)} pulls)</Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Typography padding='16px' paddingTop='0px' fontSize='0.8rem'>This doesn't count quests or exploration, unless they're part of events like Golden Apple and Three Realms</Typography>
+                            </Grid>
+                        </Grid>
+                    </Card>
+                </Grid>
+                {expectedPrimos > 0 ? <Grid item xs={12}> {/* Sources */}
                     <Card sx={{ justifyContent: 'center' }}>
                         <CardHeader title={"Sources"} sx={{ textAlign: 'center' }}/>
                         <Divider/>
