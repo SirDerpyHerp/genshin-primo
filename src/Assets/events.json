@@ -34,13 +34,12 @@
         "rushable": true
     },
     "AratakiDrumalong": {
-        "start": "2022-07-12",
-        "end": "2022-07-12",
+        "start": "2022-06-13",
+        "end": "2022-07-03",
         "name": "The Almighty Arataki Great and Glorious Drumalong Festival",
         "color": "#785c43",
         "primos": 420,
-        "undated": true,
-        "rushable": true
+        "eventDur": 7
     },
     "CoreApparatus": {
         "start": "2022-07-12",
@@ -55,7 +54,7 @@
         "start": "2022-05-14",
         "end": "2022-06-06",
         "name": "Spices From the West",
-        "color": "#95c261",
+        "color": "#6b8a48",
         "primos": 420,
         "eventDur": 7
     },
