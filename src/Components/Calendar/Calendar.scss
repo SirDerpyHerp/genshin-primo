@@ -10,6 +10,10 @@ $new-banner: #923120;
 $new-banner-neighboring: darken($new-banner, 5%);
 $new-banner-disabled: darken($new-banner, 15%);
 
+$new-patch: #881ed4;
+$new-patch-neighboring: darken($new-patch, 5%);
+$new-patch-disabled: darken($new-patch, 15%);
+
 $abyss-reset: #158161;
 $abyss-reset-neighboring: darken($abyss-reset, 5%);
 $abyss-reset-disabled: darken($abyss-reset, 15%);
@@ -103,9 +107,6 @@ $abyss-reset-disabled: darken($abyss-reset, 15%);
     color: darken(white, 40%);
     background-color: $neighboring-bg
   }
-  .react-calendar__month-view__days__day--neighboringMonth.abyssReset {
-    background-color: $abyss-reset-neighboring
-  }
   .react-calendar__year-view .react-calendar__tile,
   .react-calendar__decade-view .react-calendar__tile,
   .react-calendar__century-view .react-calendar__tile {
@@ -130,20 +131,44 @@ $abyss-reset-disabled: darken($abyss-reset, 15%);
   .react-calendar__tile.newBanner:disabled {
     background-color: $new-banner-disabled
   }
-  .abyssReset {
+  .react-calendar__month-view__days__day--neighboringMonth.newBanner {
+    background-color: $new-banner-neighboring
+  }
+  .react-calendar__tile.newPatch {
+    background-color: $new-patch
+  }
+  .react-calendar__tile.newPatch:disabled {
+    background-color: $new-patch-disabled
+  }
+  .react-calendar__month-view__days__day--neighboringMonth.newPatch {
+    background-color: $new-patch-neighboring
+  }
+  .react-calendar__tile.abyssReset {
     background-color: $abyss-reset
   }
-  .abyssReset:disabled {
+  .react-calendar__tile.abyssReset:disabled {
     background-color: $abyss-reset-disabled
   }
-  .abyssReset.newBanner {
+  .react-calendar__month-view__days__day--neighboringMonth.abyssReset {
+    background-color: $abyss-reset-neighboring
+  }
+  .react-calendar__tile.abyssReset.newBanner {
     background-image: linear-gradient(to bottom right, $abyss-reset, $abyss-reset 45%, $new-banner 55%, $new-banner)
   }
-  .abyssReset.newBanner:disabled {
+  .react-calendar__tile.abyssReset.newBanner:disabled {
     background-image: linear-gradient(to bottom right, $abyss-reset-disabled, $abyss-reset-disabled 45%, $new-banner-disabled 55%, $new-banner-disabled)
   }
   .react-calendar__month-view__days__day--neighboringMonth.abyssReset.newBanner {
     background-image: linear-gradient(to bottom right, $abyss-reset-neighboring, $abyss-reset-neighboring 45%, $new-banner-neighboring 55%, $new-banner-neighboring)
+  }
+  .react-calendar__tile.abyssReset.newPatch {
+    background-image: linear-gradient(to bottom right, $abyss-reset, $abyss-reset 45%, $new-patch 55%, $new-patch)
+  }
+  .react-calendar__tile.abyssReset.newPatch:disabled {
+    background-image: linear-gradient(to bottom right, $abyss-reset-disabled, $abyss-reset-disabled 45%, $new-patch-disabled 55%, $new-patch-disabled)
+  }
+  .react-calendar__month-view__days__day--neighboringMonth.abyssReset.newPatch {
+    background-image: linear-gradient(to bottom right, $abyss-reset-neighboring, $abyss-reset-neighboring 45%, $new-patch-neighboring 55%, $new-patch-neighboring)
   }
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {

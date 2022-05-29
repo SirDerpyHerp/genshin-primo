@@ -14,6 +14,9 @@ type CalProps = CalendarProps & {
     onDateClick: (value: Date) => void
 }
 
+const DATE_2_8 = newDate(2022, 7, 13)
+const DATE_2_7 = newDate(2022, 5, 31)
+
 const EventStrip = styled(Box)<EventStripProp>(({ color, h }: EventStripProp) => ({
     height: '10px',
     width: '100%',
@@ -40,6 +43,14 @@ function get_tom() {
     return tom
 }
 
+function deltaDate(d1: Date, d2: Date) {
+    return d1.getTime() - d2.getTime()
+}
+
+function newDate(year: number, month: number, day: number) {
+    return new Date(year, month-1, day)
+}
+
 let eventHeight: {[key: string]: number} = {}
 export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
     const [tileHeight, setTileHeight] = useState(0)
@@ -53,11 +64,17 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
         if (date.getDate() === 1 || date.getDate() === 16){
             res.push('abyssReset')
         }
-        
-        if ((date.getTime() > new Date(2022, 5-1, 30).getTime()) && ((date.getTime() === new Date(2022, 5-1, 31).getTime()) ||
-            ((new Date(2022, 7-1, 13).getTime() - date.getTime())/86400000 % 21 === 0 &&
-            (date.getTime() !== new Date(2022, 6-1, 1).getTime())))) { // Use start of 2.8, add exception for 2.7
-            res.push('newBanner')
+
+        if ((deltaDate(date, DATE_2_8)/(24*60*60*1000) % 21 === 0 && (date > newDate(2022, 6, 22) || date < newDate(2022, 5, 30))) || // Use start of 2.8
+            (deltaDate(date, DATE_2_7)/(24*60*60*1000) % 21 === 0 && (date < newDate(2022, 6, 22) && date > newDate(2022, 5, 30))) // Add exception for  2.7
+        ) {
+            if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 42 === 0 || deltaDate(date, DATE_2_7) === 0) {
+                console.log(date)
+                res.push('newPatch')
+            } else {
+                res.push('newBanner')
+            }
+            
         }
 
         return res

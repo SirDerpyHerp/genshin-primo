@@ -184,19 +184,15 @@ function App() {
                 }
             }
 
-            // Last 2.7 Compensation
-            if (checkDay.getTime() === to_utc(new Date(2022, 5-1, 25)).getTime()) {
-                increment('2.7 Compensation', 400)
-            }
-
             // Paimon's Bargains
             if (checkDay.getDate() === 1) {
                 increment("Paimon's Bargains", 800)
             }
 
-            // Reset BP Level
-            if ((to_utc(new Date(2022, 2, 31)).getTime() - checkDay.getTime())/DAY_IN_MS % 42 === 0) { // Use start of 2.6 
+            // Reset BP Level & add Maintenance Compensation
+            if ((to_utc(new Date(2022, 7-1, 13+1)).getTime() - checkDay.getTime())/DAY_IN_MS % 42 === 0) { // Use start of 2.8
                 currentBPLvl = 0
+                increment('Maintenance Compensation', 600)
             }
 
             // Events
@@ -333,11 +329,14 @@ function App() {
                         </Box>
 
                         <Grid container>
-                            <Grid item xs={6}>
-                                <Box sx={{ borderRadius: 1, margin: '1em', textAlign: 'center', backgroundColor: '#002c78', paddingBottom: '10px' }} className='react-calendar__tile newBanner'>New Banner</Box>
+                            <Grid item xs={4}>
+                                <Box sx={{ borderRadius: 1, margin: '0.5em', marginBottom: '1em', textAlign: 'center', backgroundColor: '#002c78', paddingBottom: '10px' }} className='react-calendar__tile newBanner'>New Banner</Box>
                             </Grid>
-                            <Grid item xs={6}>
-                                <Box sx={{ borderRadius: 1, margin: '1em', textAlign: 'center', backgroundColor: '#14420a', paddingBottom: '10px' }} className='react-calendar__tile abyssReset'>Abyss Reset</Box>
+                            <Grid item xs={4}>
+                                <Box sx={{ borderRadius: 1, margin: '0.5em', marginBottom: '1em', textAlign: 'center', backgroundColor: '#881ed4', paddingBottom: '10px' }} className='react-calendar__tile newPatch'>New Patch</Box>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Box sx={{ borderRadius: 1, margin: '0.5em', marginBottom: '1em', textAlign: 'center', backgroundColor: '#14420a', paddingBottom: '10px' }} className='react-calendar__tile abyssReset'>Abyss Reset</Box>
                             </Grid>
                             {
                                 Object.entries(Events).map(event => {
