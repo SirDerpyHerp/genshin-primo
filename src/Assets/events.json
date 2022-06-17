@@ -13,8 +13,6 @@
         "name": "A Muddy Bizzare Adventure",
         "color": "#511385",
         "primos": 420,
-        "undated": true,
-        "rushable": true
     },
     "AratakiDrumalong": {
         "start": "2022-06-13",
