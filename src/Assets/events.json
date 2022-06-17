@@ -1,32 +1,15 @@
 {
-    "HuesOfViolet": {
-        "start": "2022-04-07",
-        "end": "2022-04-25",
-        "name": "Hues of the Violet Garden",
-        "color": "#ba2d68",
-        "primos": [
-            120, 
-            40,
-            180,
-            60,
-            220,
-            140,
-            160,
-            80
-        ]
-    },
     "PerilousTrail": {
         "start": "2022-05-31",
         "end": "2022-06-19",
         "name": "Perilous Trail",
         "color": "#5c8ead",
-        "primos": 956,
-        "estimated": true,
-        "average": true
+        "primos": 990,
+        "rushable": true
     },
     "MuddyAdventure": {
-        "start": "2022-07-12",
-        "end": "2022-07-12",
+        "start": "2022-06-22",
+        "end": "2022-07-03",
         "name": "A Muddy Bizzare Adventure",
         "color": "#511385",
         "primos": 420,
@@ -42,13 +25,12 @@
         "eventDur": 7
     },
     "CoreApparatus": {
-        "start": "2022-07-12",
-        "end": "2022-07-12",
+        "start": "2022-06-29",
+        "end": "2022-07-10",
         "name": "Core of the Apparatus",
         "color": "#b3ad0c",
         "primos": 420,
-        "undated": true,
-        "rushable": true
+        "eventDur": 7
     },
     "Spices": {
         "start": "2022-05-14",
@@ -57,28 +39,5 @@
         "color": "#6b8a48",
         "primos": 420,
         "eventDur": 7
-    },
-    "VibroCrystal": {
-        "start": "2022-04-21",
-        "end": "2022-05-05",
-        "name": "Vibro-Crystal Research",
-        "color": "#294bc4",
-        "primos": 420,
-        "eventDur": 6
-    },
-    "Marvelous": {
-        "start": "2022-05-06",
-        "end": "2022-05-12",
-        "name": "Marvelous Merchandise",
-        "color": "#3e5e28",
-        "primos": [
-            40, 
-            40,
-            40,
-            40,
-            140,
-            40,
-            40
-        ]
     }
 }
