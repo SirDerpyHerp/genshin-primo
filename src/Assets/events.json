@@ -1,10 +1,48 @@
 {
-    "PerilousTrail": {
-        "start": "2022-05-31",
-        "end": "2022-06-19",
-        "name": "Perilous Trail",
-        "color": "#5c8ead",
-        "primos": 990,
+    "Summertime": {
+        "start": "2022-08-23",
+        "end": "2022-08-23",
+        "name": "Summertime Odyssey",
+        "color": "#44a695",
+        "primos": 1000,
+        "estimated": true,
+        "undated": true,
+        "rushable": true
+    },
+    "ReminiscentRegimen": {
+        "start": "2022-08-23",
+        "end": "2022-08-23",
+        "name": "Reminiscent Regimen",
+        "color": "#355ec4",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "ResonatingVisions": {
+        "start": "2022-08-23",
+        "end": "2022-08-23",
+        "name": "Resonating Visions",
+        "color": "#219c3b",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "HiddenStrife": {
+        "start": "2022-08-23",
+        "end": "2022-08-23",
+        "name": "Hidden Strife",
+        "color": "#f0624d",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "MechanicalPainting": {
+        "start": "2022-08-23",
+        "end": "2022-08-23",
+        "name": "Evermotion Mechanical Painting",
+        "color": "#87704e",
+        "primos": 420,
+        "undated": true,
         "rushable": true
     },
     "MuddyAdventure": {
@@ -27,14 +65,6 @@
         "end": "2022-07-10",
         "name": "Core of the Apparatus",
         "color": "#b3ad0c",
-        "primos": 420,
-        "eventDur": 7
-    },
-    "Spices": {
-        "start": "2022-05-14",
-        "end": "2022-06-06",
-        "name": "Spices From the West",
-        "color": "#6b8a48",
         "primos": 420,
         "eventDur": 7
     }
