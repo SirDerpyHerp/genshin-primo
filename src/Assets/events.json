@@ -1,13 +1,12 @@
 {
     "Summertime": {
-        "start": "2022-08-23",
+        "start": "2022-07-15",
         "end": "2022-08-23",
         "name": "Summertime Odyssey",
         "color": "#44a695",
         "primos": 1000,
         "estimated": true,
-        "undated": true,
-        "rushable": true
+        "average": true
     },
     "ReminiscentRegimen": {
         "start": "2022-08-23",
