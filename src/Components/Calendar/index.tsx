@@ -65,9 +65,8 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
             res.push('abyssReset')
         }
 
-        if ((deltaDate(date, DATE_2_8)/(24*60*60*1000) % 21 === 0 && (date > newDate(2022, 6, 22) || date < newDate(2022, 5, 30))) || // Use start of 2.8
-            (deltaDate(date, DATE_2_7)/(24*60*60*1000) % 21 === 0 && (date < newDate(2022, 6, 22) && date > newDate(2022, 5, 30))) // Add exception for  2.7
-        ) {
+        if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 21 === 0) // Use start of 2.8
+        {
             if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 42 === 0 || deltaDate(date, DATE_2_7) === 0) {
                 console.log(date)
                 res.push('newPatch')
