@@ -8,6 +8,14 @@
         "estimated": true,
         "average": true
     },
+    "ResonatingVisions": {
+        "start": "2022-07-15",
+        "end": "2022-08-23",
+        "name": "Resonating Visions",
+        "color": "#984bd6",
+        "primos": 420,
+        "duration": 7
+    },
     "ReminiscentRegimen": {
         "start": "2022-08-23",
         "end": "2022-08-23",
@@ -17,23 +25,13 @@
         "undated": true,
         "rushable": true
     },
-    "ResonatingVisions": {
-        "start": "2022-08-23",
-        "end": "2022-08-23",
-        "name": "Resonating Visions",
-        "color": "#219c3b",
-        "primos": 420,
-        "undated": true,
-        "rushable": true
-    },
     "HiddenStrife": {
-        "start": "2022-08-23",
-        "end": "2022-08-23",
+        "start": "2022-07-27",
+        "end": "2022-08-15",
         "name": "Hidden Strife",
         "color": "#f0624d",
         "primos": 420,
-        "undated": true,
-        "rushable": true
+        "duration": 7
     },
     "MechanicalPainting": {
         "start": "2022-08-23",
@@ -57,7 +55,7 @@
         "name": "The Almighty Arataki Great and Glorious Drumalong Festival",
         "color": "#785c43",
         "primos": 420,
-        "eventDur": 7
+        "duration": 7
     },
     "CoreApparatus": {
         "start": "2022-06-29",
@@ -65,6 +63,6 @@
         "name": "Core of the Apparatus",
         "color": "#b3ad0c",
         "primos": 420,
-        "eventDur": 7
+        "duration": 7
     }
 }
