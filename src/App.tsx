@@ -134,7 +134,7 @@ function App() {
         name: string
         color: string
         primos: number | number[]
-        eventDur?: number
+        duration?: number
         rushable?: boolean
         average?: boolean
     }
@@ -205,9 +205,9 @@ function App() {
                             return
                         }
 
-                        if (e.eventDur) {
-                            if ((checkDay.valueOf() - e.start.valueOf())/DAY_IN_MS < e.eventDur) {
-                                increment(e.name, e.primos/e.eventDur)
+                        if (e.duration) {
+                            if ((checkDay.valueOf() - e.start.valueOf())/DAY_IN_MS < e.duration) {
+                                increment(e.name, e.primos/e.duration)
                                 return
                             }
                         }
