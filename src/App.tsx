@@ -294,7 +294,8 @@ function App() {
                                 <Typography padding='16px' paddingBottom='12px'>Estimated Primogems: {Math.floor(expectedPrimos)} <Primogem/> ({Math.floor(expectedPrimos/160)} pulls)</Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <Typography padding='16px' paddingTop='0px' fontSize='0.8rem'>This doesn't count quests or exploration, unless they're part of events like Golden Apple and Three Realms</Typography>
+                                <Typography padding='16px' paddingTop='0px' paddingBottom='0px' fontSize='0.8rem'>This doesn't count quests or exploration, unless they're part of events like Golden Apple and Three Realms.</Typography>
+                                <Typography padding='16px' paddingTop='0px' fontSize='0.8rem'>Assumes you do the event right away.</Typography>
                             </Grid>
                         </Grid>
                     </Card>
