@@ -5,13 +5,11 @@
         "name": "Summertime Odyssey",
         "color": "#44a695",
         "primos": [
-            261,
-            150,
-            210,
-            180,
-            180,
-            120,
-            30
+            256,
+            290,
+            190,
+            160,
+            160
         ]
     },
     "ResonatingVisions": {
@@ -19,8 +17,11 @@
         "end": "2022-08-23",
         "name": "Resonating Visions",
         "color": "#984bd6",
-        "primos": 420,
-        "duration": 7
+        "primos": [
+            240,
+            0,
+            80
+        ]
     },
     "ReminiscentRegimen": {
         "start": "2022-08-23",
