@@ -4,13 +4,7 @@
         "end": "2022-08-23",
         "name": "Summertime Odyssey",
         "color": "#44a695",
-        "primos": [
-            256,
-            290,
-            190,
-            160,
-            160
-        ]
+        "primos": 2600
     },
     "ResonatingVisions": {
         "start": "2022-07-15",
