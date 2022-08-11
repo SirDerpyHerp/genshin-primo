@@ -2,7 +2,7 @@ import { Box, BoxProps, styled } from '@mui/material'
 import Events from '../../Assets/events.json'
 import Cal, { CalendarProps } from 'react-calendar'
 import './Calendar.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type EventStripProp = BoxProps & {
     color: string,
@@ -55,39 +55,44 @@ let eventHeight: {[key: string]: number} = {}
 export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
     const [tileHeight, setTileHeight] = useState(0)
 
-    return <Cal
-    minDetail='month'
-    minDate={new Date()}
-    tileClassName={({ date }) => {
-        let res:string[] = []
-
-        if (date.getDate() === 1 || date.getDate() === 16){
-            res.push('abyssReset')
-        }
-
-        if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 21 === 0) // Use start of 2.8
-        {
-            if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 42 === 0 || deltaDate(date, DATE_2_7) === 0) {
-                console.log(date)
-                res.push('newPatch')
-            } else {
-                res.push('newBanner')
-            }
-            
-        }
-
-        return res
-    }}
-    onActiveStartDateChange={() => {
+    useEffect(() => {
         const visibleEvents = onMonthChange()
         setTileHeight(visibleEvents)
-    }}
-    onClickDay={( value ) => {
-        const utc = new Date(Date.UTC(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate()))
-        onDateClick(utc)
-    }}
-    defaultValue={get_tom()}
-    tileContent={({ date, activeStartDate }) => {
+    })
+
+    return <Cal
+        minDetail='month'
+        minDate={new Date()}
+        tileClassName={({ date }) => {
+            let res:string[] = []
+
+            if (date.getDate() === 1 || date.getDate() === 16){
+                res.push('abyssReset')
+            }
+
+            if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 21 === 0) // Use start of 2.8
+            {
+                if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 42 === 0 || deltaDate(date, DATE_2_7) === 0) {
+                    console.log(date)
+                    res.push('newPatch')
+                } else {
+                    res.push('newBanner')
+                }
+                
+            }
+
+            return res
+        }}
+        onActiveStartDateChange={() => {
+            const visibleEvents = onMonthChange()
+            setTileHeight(visibleEvents)
+        }}
+        onClickDay={( value ) => {
+            const utc = new Date(Date.UTC(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate()))
+            onDateClick(utc)
+        }}
+        defaultValue={get_tom()}
+        tileContent={({ date, activeStartDate }) => {
         return <Box height={`${15 + tileHeight}px`} width={'100%'} minHeight={"25px"}> 
             {
                 Object.entries(Events).map((event, index) => {
@@ -145,6 +150,6 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
                 })
             }
         </Box>
-    }}
+        }}
     />
 }
