@@ -41,27 +41,12 @@
         "primos": 420,
         "duration": 7
     },
-    "MuddyAdventure": {
-        "start": "2022-06-22",
-        "end": "2022-07-03",
-        "name": "A Muddy Bizzare Adventure",
-        "color": "#511385",
-        "primos": 420
-    },
-    "AratakiDrumalong": {
-        "start": "2022-06-13",
-        "end": "2022-07-03",
-        "name": "The Almighty Arataki Great and Glorious Drumalong Festival",
-        "color": "#785c43",
-        "primos": 420,
-        "duration": 7
-    },
-    "CoreApparatus": {
-        "start": "2022-06-29",
-        "end": "2022-07-10",
-        "name": "Core of the Apparatus",
-        "color": "#b3ad0c",
-        "primos": 420,
-        "duration": 7
+    "3.0SpecialProgram": {
+        "start": "2022-08-13",
+        "end": "2022-08-13",
+        "name": "3.0 Special Program Livestream",
+        "color": "#67838a",
+        "primos": 300,
+        "rushable": true
     }
 }
