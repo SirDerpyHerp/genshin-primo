@@ -38,8 +38,14 @@
         "end": "2022-08-21",
         "name": "Evermotion Mechanical Painting",
         "color": "#87704e",
-        "primos": 420,
-        "duration": 7
+        "primos": [
+            90,
+            60,
+            60,
+            60,
+            60,
+            90
+        ]
     },
     "3.0SpecialProgram": {
         "start": "2022-08-13",
@@ -48,5 +54,41 @@
         "color": "#67838a",
         "primos": 300,
         "rushable": true
+    },
+    "GravenInnocence": {
+        "start": "2022-09-27",
+        "end": "2022-09-27",
+        "name": "Graven Innocence",
+        "color": "#29ab0c",
+        "primos": 1000,
+        "average": true,
+        "undated": true
+    },
+    "FayzTrials": {
+        "start": "2022-09-27",
+        "end": "2022-09-27",
+        "name": "Fayz Trials",
+        "color": "#ad330e",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
+    },
+    "TabletAnalytics": {
+        "start": "2022-09-27",
+        "end": "2022-09-27",
+        "name": "Tablet Analytics",
+        "color": "#0099a1",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
+    },
+    "LostRiches": {
+        "start": "2022-09-27",
+        "end": "2022-09-27",
+        "name": "Lost Riches",
+        "color": "#7a772d",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
     }
 }
