@@ -1,7 +1,7 @@
 import { CardContent, Divider, TextField, Grid, FormControlLabel, Checkbox, CardHeader, Box, Typography } from '@mui/material'
 import React, { useEffect } from 'react'
 import Card from './Components/Card'
-import Calendar, { get_now, to_utc } from './Components/Calendar/'
+import Calendar, { get_now, to_utc, deltaDate, DATE_2_8, DATE_3_0, DATE_3_3 } from './Components/Calendar/'
 import Primogem from './Components/Primogem'
 import StarTextField from './Components/StarTextField'
 import Events from './Assets/events.json'
@@ -191,7 +191,11 @@ function App() {
             }
 
             // Reset BP Level & add Maintenance Compensation
-            if ((to_utc(new Date(2022, 7-1, 13+1)).getTime() - checkDay.getTime())/DAY_IN_MS % 42 === 0) { // Use start of 2.8
+            console.log(deltaDate(checkDay, DATE_3_0))
+            if (
+                ((deltaDate(checkDay, DATE_2_8) % 42 === 0 && deltaDate(checkDay, DATE_3_0) <= 0) || (deltaDate(checkDay, DATE_3_3) % 42 === 0 && deltaDate(checkDay, DATE_3_3) >= 0)) || // Use start of 2.8 and 3.3
+                ((deltaDate(checkDay, DATE_3_0) % 35 === 0 ) && (deltaDate(checkDay, DATE_3_0) >= 0 && deltaDate(checkDay, DATE_3_3) <= 0)) // Hoyoverse, why the new schedule aaaa
+            ) {
                 currentBPLvl = 0
                 increment('Maintenance Compensation', 600)
             }

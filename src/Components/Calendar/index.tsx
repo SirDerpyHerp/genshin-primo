@@ -14,8 +14,9 @@ type CalProps = CalendarProps & {
     onDateClick: (value: Date) => void
 }
 
-const DATE_2_8 = newDate(2022, 7, 13)
-const DATE_2_7 = newDate(2022, 5, 31)
+export const DATE_2_8 = newDate(2022, 7, 13)
+export const DATE_3_0 = newDate(2022, 8, 24)
+export const DATE_3_3 = newDate(2022, 12, 7)
 
 const EventStrip = styled(Box)<EventStripProp>(({ color, h }: EventStripProp) => ({
     height: '10px',
@@ -43,8 +44,8 @@ function get_tom() {
     return tom
 }
 
-function deltaDate(d1: Date, d2: Date) {
-    return d1.getTime() - d2.getTime()
+export function deltaDate(d1: Date, d2: Date) {
+    return Math.floor((d1.getTime() - d2.getTime())/(24*60*60*1000))
 }
 
 function newDate(year: number, month: number, day: number) {
@@ -66,17 +67,31 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
         tileClassName={({ date }) => {
             let res:string[] = []
 
-            if (date.getDate() === 1 || date.getDate() === 16){
+            if (date.getDate() === 1 || date.getDate() === 16) {
                 res.push('abyssReset')
             }
-
-            if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 21 === 0) // Use start of 2.8
+            
+            if (
+                ((deltaDate(date, DATE_2_8) % 21 === 0 && deltaDate(date, DATE_3_0) <= 0) || (deltaDate(date, DATE_3_3) % 21 === 0 && deltaDate(date, DATE_3_3) >= 0)) || // Use start of 2.8 and 3.3
+                ((deltaDate(date, DATE_3_0) % 35 === 0 || deltaDate(date, DATE_3_0) % 35 === 17) && (deltaDate(date, DATE_3_0) >= 0 && deltaDate(date, DATE_3_3) <= 0)) // Hoyoverse, why the new schedule aaaa
+            )
             {
-                if (deltaDate(date, DATE_2_8)/(24*60*60*1000) % 42 === 0 || deltaDate(date, DATE_2_7) === 0) {
-                    console.log(date)
-                    res.push('newPatch')
+                if (deltaDate(date, DATE_3_0) < 0 || deltaDate(date, DATE_3_3) > 0) {
+                    if (
+                        (deltaDate(date, DATE_2_8) % 42 === 0 && deltaDate(date, DATE_3_0) < 0) ||
+                        (deltaDate(date, DATE_3_3) % 42 === 0 && deltaDate(date, DATE_3_3) > 0)
+                    ) {
+                        res.push('newPatch')
+                    } else {
+                        res.push('newBanner')
+                    }
                 } else {
-                    res.push('newBanner')
+                    
+                    if (deltaDate(date, DATE_3_0) % 35 === 0) {
+                        res.push('newPatch')
+                    } else if (deltaDate(date, DATE_3_0) % 35 === 17) {
+                        res.push('newBanner')
+                    }
                 }
                 
             }
