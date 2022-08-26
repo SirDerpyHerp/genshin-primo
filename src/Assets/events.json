@@ -73,6 +73,15 @@
             40
         ]
     },
+    "LostRiches": {
+        "start": "2022-09-02",
+        "end": "2022-09-18",
+        "name": "Lost Riches",
+        "color": "#7a772d",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
+    },
     "FayzTrials": {
         "start": "2022-09-08",
         "end": "2022-09-25",
@@ -85,15 +94,6 @@
         "end": "2022-09-27",
         "name": "Tablet Analytics",
         "color": "#0099a1",
-        "primos": 420,
-        "rushable": true,
-        "undated": true
-    },
-    "LostRiches": {
-        "start": "2022-09-02",
-        "end": "2022-09-18",
-        "name": "Lost Riches",
-        "color": "#7a772d",
         "primos": 420,
         "rushable": true,
         "undated": true
