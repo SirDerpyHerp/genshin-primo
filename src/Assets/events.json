@@ -56,22 +56,29 @@
         "rushable": true
     },
     "GravenInnocence": {
-        "start": "2022-09-27",
+        "start": "2022-08-24",
         "end": "2022-09-27",
         "name": "Graven Innocence",
         "color": "#29ab0c",
-        "primos": 1000,
-        "average": true,
-        "undated": true
+        "primos": [
+            540,
+            40,
+            40,
+            80,
+            40,
+            40,
+            80,
+            0,
+            0,
+            40
+        ]
     },
     "FayzTrials": {
-        "start": "2022-09-27",
-        "end": "2022-09-27",
+        "start": "2022-09-08",
+        "end": "2022-09-25",
         "name": "Fayz Trials",
         "color": "#ad330e",
-        "primos": 420,
-        "rushable": true,
-        "undated": true
+        "primos": 420
     },
     "TabletAnalytics": {
         "start": "2022-09-27",
@@ -83,8 +90,8 @@
         "undated": true
     },
     "LostRiches": {
-        "start": "2022-09-27",
-        "end": "2022-09-27",
+        "start": "2022-09-02",
+        "end": "2022-09-18",
         "name": "Lost Riches",
         "color": "#7a772d",
         "primos": 420,
