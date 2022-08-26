@@ -73,7 +73,7 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
             
             if (
                 ((deltaDate(date, DATE_2_8) % 21 === 0 && deltaDate(date, DATE_3_0) <= 0) || (deltaDate(date, DATE_3_3) % 21 === 0 && deltaDate(date, DATE_3_3) >= 0)) || // Use start of 2.8 and 3.3
-                ((deltaDate(date, DATE_3_0) % 35 === 0 || deltaDate(date, DATE_3_0) % 35 === 17) && (deltaDate(date, DATE_3_0) >= 0 && deltaDate(date, DATE_3_3) <= 0)) // Hoyoverse, why the new schedule aaaa
+                ((deltaDate(date, DATE_3_0) % 35 === 0 || deltaDate(date, DATE_3_0) % 35 === 16) && (deltaDate(date, DATE_3_0) >= 0 && deltaDate(date, DATE_3_3) <= 0)) // Hoyoverse, why the new schedule aaaa
             )
             {
                 if (deltaDate(date, DATE_3_0) < 0 || deltaDate(date, DATE_3_3) > 0) {
@@ -89,7 +89,7 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
                     
                     if (deltaDate(date, DATE_3_0) % 35 === 0) {
                         res.push('newPatch')
-                    } else if (deltaDate(date, DATE_3_0) % 35 === 17) {
+                    } else if (deltaDate(date, DATE_3_0) % 35 === 16) {
                         res.push('newBanner')
                     }
                 }
