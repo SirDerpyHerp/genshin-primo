@@ -1,60 +1,4 @@
 {
-    "Summertime": {
-        "start": "2022-07-15",
-        "end": "2022-08-23",
-        "name": "Summertime Odyssey",
-        "color": "#44a695",
-        "primos": 2600
-    },
-    "ResonatingVisions": {
-        "start": "2022-07-15",
-        "end": "2022-08-23",
-        "name": "Resonating Visions",
-        "color": "#984bd6",
-        "primos": [
-            240,
-            0,
-            80
-        ]
-    },
-    "HiddenStrife": {
-        "start": "2022-07-27",
-        "end": "2022-08-14",
-        "name": "Hidden Strife",
-        "color": "#f0624d",
-        "primos": 420,
-        "duration": 7
-    },
-    "ReminiscentRegimen": {
-        "start": "2022-08-04",
-        "end": "2022-08-15",
-        "name": "Reminiscent Regimen",
-        "color": "#355ec4",
-        "primos": 420,
-        "duration": 6
-    },
-    "MechanicalPainting": {
-        "start": "2022-08-12",
-        "end": "2022-08-21",
-        "name": "Evermotion Mechanical Painting",
-        "color": "#87704e",
-        "primos": [
-            90,
-            60,
-            60,
-            60,
-            60,
-            90
-        ]
-    },
-    "3.0SpecialProgram": {
-        "start": "2022-08-13",
-        "end": "2022-08-13",
-        "name": "3.0 Special Program Livestream",
-        "color": "#67838a",
-        "primos": 300,
-        "rushable": true
-    },
     "GravenInnocence": {
         "start": "2022-08-24",
         "end": "2022-09-27",
@@ -79,15 +23,15 @@
         "name": "Lost Riches",
         "color": "#7a772d",
         "primos": 420,
-        "rushable": true,
-        "undated": true
+        "rushable": true
     },
     "FayzTrials": {
         "start": "2022-09-08",
         "end": "2022-09-25",
         "name": "Fayz Trials",
         "color": "#ad330e",
-        "primos": 420
+        "primos": 420,
+        "duration": 7
     },
     "TabletAnalytics": {
         "start": "2022-09-27",
