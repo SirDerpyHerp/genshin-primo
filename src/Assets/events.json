@@ -34,12 +34,15 @@
         "duration": 7
     },
     "TabletAnalytics": {
-        "start": "2022-09-27",
-        "end": "2022-09-27",
+        "start": "2022-09-15",
+        "end": "2022-09-25",
         "name": "Tablet Analytics",
         "color": "#0099a1",
-        "primos": 420,
-        "rushable": true,
-        "undated": true
+        "primos": [
+            120,
+            90,
+            90,
+            120
+        ]
     }
 }
