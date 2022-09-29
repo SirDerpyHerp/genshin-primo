@@ -52,5 +52,71 @@
         "color": "#cf9936",
         "primos": 300,
         "rushable": true
+    },
+    "ThankYouGift": {
+        "start": "2022-09-28",
+        "end": "2022-11-01",
+        "name": "Of Travels and Treasures: A Thank-You Gift",
+        "color": "#4d6482",
+        "primos": 1600,
+        "duration": 4
+    },
+    "OfBalladsAndBrews": {
+        "start": "2022-09-29",
+        "end": "2022-10-16",
+        "name": "Of Ballads and Brews",
+        "color": "#079ad9",
+        "primos": [
+            190,
+            70,
+            60,
+            190,
+            70,
+            60,
+            190,
+            70,
+            60
+        ]
+    },
+    "HyakuninIkki": {
+        "start": "2022-10-09",
+        "end": "2022-10-23",
+        "name": "Hyakunin Ikki",
+        "color": "#b84e21",
+        "primos": 420,
+        "duration": 7
+    },
+    "PathOfGleamingJade": {
+        "start": "2022-10-14",
+        "end": "2022-10-30",
+        "name": "Path of Gleaming Jade",
+        "color": "#cf9936",
+        "primos": [
+            160,
+            0,
+            320,
+            0,
+            320,
+            0,
+            800
+        ]
+    },
+    "WindChase": {
+        "start": "2022-11-01",
+        "end": "2022-11-01",
+        "name": "Wind Chaser",
+        "color": "#02ad63",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
+    },
+    "StarSeekersSojourn": {
+        "start": "2022-11-01",
+        "end": "2022-11-01",
+        "name": "Star-Seeker's Sojourn",
+        "color": "#246e4e",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
     }
 }
