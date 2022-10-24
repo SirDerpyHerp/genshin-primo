@@ -43,7 +43,7 @@
         "name": "Wind Chaser",
         "color": "#02ad63",
         "primos": 420,
-        "rushable": true
+        "duration": 6
     },
     "StarSeekersSojourn": {
         "start": "2022-10-21",
@@ -51,6 +51,52 @@
         "name": "Star-Seeker's Sojourn",
         "color": "#246e4e",
         "primos": 420,
+        "duration": 7
+    },
+    "FabulousFungus": {
+        "start": "2022-12-06",
+        "end": "2022-12-06",
+        "name": "Fabulous Fungus Frenzy",
+        "color": "#16a81b",
+        "primos": 1000,
+        "estimated": true,
+        "undated": true,
+        "rushable": true
+    },
+    "OutsideCanvas": {
+        "start": "2022-12-06",
+        "end": "2022-12-06",
+        "name": "Outside the Canvas, Inside the Lens",
+        "color": "#95a34e",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "HypostaticSymphony": {
+        "start": "2022-12-06",
+        "end": "2022-12-06",
+        "name": "Hypostatic Symphony: Dissonant Verse",
+        "color": "#329485",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "AdventurersTrials": {
+        "start": "2022-12-06",
+        "end": "2022-12-06",
+        "name": "Adventurer's Trials",
+        "color": "#783a9c",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "MarvelousMerchandise": {
+        "start": "2022-12-06",
+        "end": "2022-12-06",
+        "name": "Marvelous Merchandise",
+        "color": "#ab6c3c",
+        "primos": 380,
+        "undated": true,
         "rushable": true
     }
 }
