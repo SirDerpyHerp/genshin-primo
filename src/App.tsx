@@ -1,7 +1,8 @@
 import { CardContent, Divider, TextField, Grid, FormControlLabel, Checkbox, CardHeader, Box, Typography } from '@mui/material'
 import React, { useEffect } from 'react'
 import Card from './Components/Card'
-import Calendar, { get_now, to_utc, deltaDate, DATE_2_8, DATE_3_0, DATE_3_3 } from './Components/Calendar/'
+import Calendar, { get_now, deltaDay, INTERVAL_30_33 } from './Components/Calendar/'
+import { DateTime, Interval } from 'luxon'
 import Primogem from './Components/Primogem'
 import StarTextField from './Components/StarTextField'
 import Events from './Assets/events.json'
@@ -35,7 +36,7 @@ function App() {
     const [hasEstimated, setEstimated] = React.useState(false)
     const [abyssFloors, setAbyssFloors] = React.useState([0, 0, 0, 0])
     const [primoSources, setPrimoSources] = React.useState(new MapZeroDefault())
-    const [day, setDay] = React.useState(get_now())
+    const [day, setDay] = React.useState(DateTime.now())
     const today = get_now()
 
     const sanitizeNumberInput = (val: string) => {
@@ -128,9 +129,9 @@ function App() {
     }
 
     interface Event {
-        start: Date
-        end: Date
-        totalDur: number
+        start: string
+        end: string
+        interval: Interval
         name: string
         color: string
         primos: number | number[]
@@ -141,7 +142,7 @@ function App() {
 
     // Calc primos
     useEffect(() => {
-        let checkDay = today
+        let checkDay = DateTime.fromJSDate(today, { zone: 'utc' })
         let welkinDaysLeft = welkinDays
         let currentBPLvl = bpLvl
         let expected = 0
@@ -154,13 +155,11 @@ function App() {
         const abyssStars = abyssFloors.reduce((a, b) => a+b)
 
         let events = [...Object.entries(Events).map(e => {
-            let event = {...e[1], start: to_utc(new Date(e[1].start)), end: to_utc(new Date(e[1].end))} as Event
-            event.totalDur = (event.end.valueOf() - event.start.valueOf())/DAY_IN_MS + 1
+            const event = {...e[1], interval: Interval.fromDateTimes(DateTime.fromISO(e[1].start, { zone:'utc' }), DateTime.fromISO(e[1].end, { zone:'utc' }).plus({ millisecond: 1 }))} as Event
             return event
         })]
 
-        checkDay.setDate(checkDay.getDate() + 1)
-        while ((checkDay.valueOf() - day.valueOf()) <= DAY_IN_MS) {
+        while (deltaDay(checkDay, day) >= 0) {
             increment('Daily', 60)
 
             // Welkin
@@ -170,12 +169,12 @@ function App() {
             }
 
             // Abyss
-            if (checkDay.getDate() === 1 || checkDay.getDate() === 16) {
+            if (checkDay.day === 1 || checkDay.day === 16) {
                 increment('Abyss', 50 * Math.floor(abyssStars/3))
             }
 
             // BP
-            if (checkDay.getDay() === 0 && bpCheck) {
+            if (checkDay.weekday === 7 && bpCheck) {
                 if (currentBPLvl < 40) {
                     increment('Battle Pass', 160)
                     currentBPLvl += 10
@@ -186,42 +185,46 @@ function App() {
             }
 
             // Paimon's Bargains
-            if (checkDay.getDate() === 1) {
+            if (checkDay.day === 1) {
                 increment("Paimon's Bargains", 800)
             }
 
             // Reset BP Level & add Maintenance Compensation
-            console.log(deltaDate(checkDay, DATE_3_0))
-            if (
-                ((deltaDate(checkDay, DATE_2_8) % 42 === 0 && deltaDate(checkDay, DATE_3_0) <= 0) || (deltaDate(checkDay, DATE_3_3) % 42 === 0 && deltaDate(checkDay, DATE_3_3) >= 0)) || // Use start of 2.8 and 3.3
-                ((deltaDate(checkDay, DATE_3_0) % 35 === 0 ) && (deltaDate(checkDay, DATE_3_0) >= 0 && deltaDate(checkDay, DATE_3_3) <= 0)) // Hoyoverse, why the new schedule aaaa
-            ) {
-                currentBPLvl = 0
-                increment('Maintenance Compensation', 600)
+            if (INTERVAL_30_33.contains(checkDay)) {
+                if (deltaDay(checkDay, INTERVAL_30_33.start) % 35 === 0) {
+                    increment('Maintenance Compensation', 600)
+                    currentBPLvl = 0
+                }
+            } else {
+                if (deltaDay(checkDay, INTERVAL_30_33.end) % 42 === 0) {
+                    increment('Maintenance Compensation', 600)
+                    currentBPLvl = 0
+                }
             }
 
             // Events
             events.forEach(e => {
-                if (checkDay.valueOf() >= e.start.valueOf() && checkDay.valueOf() <= e.end.valueOf()) {
+                if (e.interval.contains(checkDay)) {
                     if (typeof e.primos === 'number') {
-                        if (e.rushable && checkDay.valueOf() === e.start.valueOf()) {
+                        if (e.rushable && checkDay.equals(e.interval.start)) {
                             increment(e.name, e.primos)
                             return
                         }
 
                         if (e.duration) {
-                            if ((checkDay.valueOf() - e.start.valueOf())/DAY_IN_MS < e.duration) {
+                            if (deltaDay(e.interval.start, checkDay) < e.duration) {
                                 increment(e.name, e.primos/e.duration)
                                 return
                             }
                         }
 
                         if (e.average) {
-                            increment(e.name, e.primos/e.totalDur)
+                            console.log(Math.floor(e.interval.length('days')))
+                            increment(e.name, e.primos/Math.floor(e.interval.length('days')+1))
                             return
                         }
                     } else if (typeof e.primos === 'object') {
-                        const eventDay = (checkDay.valueOf() - e.start.valueOf())/DAY_IN_MS
+                        const eventDay = deltaDay(e.interval.start, checkDay)
 
                         if (e.primos.length-1 >= eventDay) {
                             console.log(e.primos[eventDay], e.primos.length, eventDay)
@@ -231,7 +234,7 @@ function App() {
                 }
             })
             
-            checkDay.setDate(checkDay.getDate() + 1)
+            checkDay = checkDay.plus({ days: 1 })
         }
 
         sources = new MapZeroDefault(
@@ -331,7 +334,10 @@ function App() {
                         <Box maxWidth='95%' marginLeft='auto' marginRight='auto'>
                             <Calendar
                                 onMonthChange={(() => updateLegend())}
-                                onDateClick={(value: Date) => setDay(value)}
+                                onDateClick={(value: DateTime) => {
+                                        setDay(value)
+                                    }
+                                }
                             />
                         </Box>
 

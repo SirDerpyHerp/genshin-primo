@@ -3,6 +3,7 @@ import Events from '../../Assets/events.json'
 import Cal, { CalendarProps } from 'react-calendar'
 import './Calendar.scss'
 import { useEffect, useState } from 'react'
+import { DateTime, Interval } from 'luxon'
 
 type EventStripProp = BoxProps & {
     color: string,
@@ -11,12 +12,12 @@ type EventStripProp = BoxProps & {
 
 type CalProps = CalendarProps & {
     onMonthChange: () => number
-    onDateClick: (value: Date) => void
+    onDateClick: (value: DateTime) => void
 }
 
-export const DATE_2_8 = newDate(2022, 7, 13)
-export const DATE_3_0 = newDate(2022, 8, 24)
-export const DATE_3_3 = newDate(2022, 12, 7)
+export const DATE_3_0 = DateTime.utc(2022, 8, 24)
+export const DATE_3_3 = DateTime.utc(2022, 12, 7)
+export const INTERVAL_30_33 = Interval.fromDateTimes(DATE_3_0, DATE_3_3)
 
 const EventStrip = styled(Box)<EventStripProp>(({ color, h }: EventStripProp) => ({
     height: '10px',
@@ -29,27 +30,19 @@ const EventStrip = styled(Box)<EventStripProp>(({ color, h }: EventStripProp) =>
     opacity: 1
 }));
 
-export function to_utc(d: Date) {
-    let utc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
-    return new Date(utc)
+export function deltaDay(d1: DateTime, d2: DateTime): number {
+    return Math.floor(d2.diff(d1, 'days').days)
 }
 
-export function get_now() {
-    return to_utc(new Date())
+export function get_now(): Date {
+    const today = DateTime.utc().set({ hour: 0, minute: 0, second: 0, millisecond: 0 })
+    return today.toJSDate()
 }
 
-function get_tom() {
-    let tom = get_now()
-    tom.setDate(tom.getDate() + 1)
-    return tom
-}
-
-export function deltaDate(d1: Date, d2: Date) {
-    return Math.floor((d1.getTime() - d2.getTime())/(24*60*60*1000))
-}
-
-function newDate(year: number, month: number, day: number) {
-    return new Date(year, month-1, day)
+function get_tommorrow(): Date {
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    return tomorrow
 }
 
 let eventHeight: {[key: string]: number} = {}
@@ -66,34 +59,27 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
         minDate={new Date()}
         tileClassName={({ date }) => {
             let res:string[] = []
+            const dateObject = DateTime.utc(date.getFullYear(), date.getMonth()+1, date.getDate())
 
             if (date.getDate() === 1 || date.getDate() === 16) {
                 res.push('abyssReset')
             }
             
-            if (
-                ((deltaDate(date, DATE_2_8) % 21 === 0 && deltaDate(date, DATE_3_0) <= 0) || (deltaDate(date, DATE_3_3) % 21 === 0 && deltaDate(date, DATE_3_3) >= 0)) || // Use start of 2.8 and 3.3
-                ((deltaDate(date, DATE_3_0) % 35 === 0 || deltaDate(date, DATE_3_0) % 35 === 16) && (deltaDate(date, DATE_3_0) >= 0 && deltaDate(date, DATE_3_3) <= 0)) // Hoyoverse, why the new schedule aaaa
-            )
-            {
-                if (deltaDate(date, DATE_3_0) < 0 || deltaDate(date, DATE_3_3) > 0) {
-                    if (
-                        (deltaDate(date, DATE_2_8) % 42 === 0 && deltaDate(date, DATE_3_0) < 0) ||
-                        (deltaDate(date, DATE_3_3) % 42 === 0 && deltaDate(date, DATE_3_3) > 0)
-                    ) {
-                        res.push('newPatch')
-                    } else {
-                        res.push('newBanner')
-                    }
-                } else {
-                    
-                    if (deltaDate(date, DATE_3_0) % 35 === 0) {
-                        res.push('newPatch')
-                    } else if (deltaDate(date, DATE_3_0) % 35 === 16) {
-                        res.push('newBanner')
-                    }
+            // Check if it's in the new schedule
+            if (INTERVAL_30_33.contains(dateObject)) {
+                // New schedule
+                if (deltaDay(DATE_3_0, dateObject) % 35 === 0) {
+                    res.push('newPatch')
+                } else if (deltaDay(DATE_3_0, dateObject) % 35 === 16) {
+                    res.push('newBanner')
                 }
-                
+            } else {
+                // Not new schedule
+                if (deltaDay(dateObject, DATE_3_3) % 42 === 0) {
+                    res.push('newPatch')
+                } else if (deltaDay(dateObject, DATE_3_3) % 21 === 0) {
+                    res.push('newBanner')
+                }
             }
 
             return res
@@ -103,18 +89,18 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
             setTileHeight(visibleEvents)
         }}
         onClickDay={( value ) => {
-            const utc = new Date(Date.UTC(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate()))
+            const utc = DateTime.utc(value.getFullYear(), value.getMonth()+1, value.getDate())
             onDateClick(utc)
         }}
-        defaultValue={get_tom()}
+        defaultValue={get_tommorrow()}
         tileContent={({ date, activeStartDate }) => {
         return <Box height={`${15 + tileHeight}px`} width={'100%'} minHeight={"25px"}> 
             {
                 Object.entries(Events).map((event, index) => {
-                    const utcDate = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()+1);
+                    const utcDate = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
                     const eventStart = (new Date(event[1].start)).valueOf()
                     const eventEnd = (new Date(event[1].end)).valueOf()
-                    
+
                     if (!(event[0] in eventHeight)) {
                         let incompatibleLanes: boolean[] = []
 
