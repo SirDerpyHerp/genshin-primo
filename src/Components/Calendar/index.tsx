@@ -34,9 +34,14 @@ export function deltaDay(d1: DateTime, d2: DateTime): number {
     return Math.floor(d2.diff(d1, 'days').days)
 }
 
-export function get_now(): Date {
+export function get_now_utc(): DateTime {
     const today = DateTime.utc().set({ hour: 0, minute: 0, second: 0, millisecond: 0 })
-    return today.toJSDate()
+    return today
+}
+
+export function get_now_local(): DateTime {
+    const today = DateTime.now().set({ hour: 0, minute: 0, second: 0, millisecond: 0 })
+    return today
 }
 
 function get_tommorrow(): Date {
@@ -89,7 +94,7 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
             setTileHeight(visibleEvents)
         }}
         onClickDay={( value ) => {
-            const utc = DateTime.utc(value.getFullYear(), value.getMonth()+1, value.getDate())
+            const utc = DateTime.local(value.getFullYear(), value.getMonth()+1, value.getDate())
             onDateClick(utc)
         }}
         defaultValue={get_tommorrow()}
@@ -138,7 +143,7 @@ export default function Calendar({ onMonthChange, onDateClick }: CalProps) {
 
                     let height = eventHeight[event[0]]
                     if (utcDate >= eventStart && utcDate <= eventEnd) {
-                        if (utcDate < get_now().valueOf()) {
+                        if (utcDate < get_now_utc().toMillis()) {
                             return <EventStrip color={event[1].color} h={height} sx={{filter: 'brightness(0.6)'}} className={`${event[0]}-tag`}/>
                         } else if (date.getMonth() !== activeStartDate.getMonth()) {
                             return <EventStrip color={event[1].color} h={height} sx={{filter: 'brightness(0.8)'}} className={`${event[0]}-tag`}/>

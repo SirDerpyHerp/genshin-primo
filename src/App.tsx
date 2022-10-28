@@ -1,7 +1,7 @@
 import { CardContent, Divider, TextField, Grid, FormControlLabel, Checkbox, CardHeader, Box, Typography } from '@mui/material'
 import React, { useEffect } from 'react'
 import Card from './Components/Card'
-import Calendar, { get_now, deltaDay, INTERVAL_30_33 } from './Components/Calendar/'
+import Calendar, { get_now_local, deltaDay, INTERVAL_30_33 } from './Components/Calendar/'
 import { DateTime, Interval } from 'luxon'
 import Primogem from './Components/Primogem'
 import StarTextField from './Components/StarTextField'
@@ -26,6 +26,7 @@ class MapZeroDefault extends Map<string, number> {
 }
 
 function App() {
+    const today = get_now_local()
     const [bpCheck, setBp] = React.useState(false)
     const [welkinCheck, setWelkin] = React.useState(false)
     const [expectedPrimos, setExpectedPrimos] = React.useState(0)
@@ -36,8 +37,7 @@ function App() {
     const [hasEstimated, setEstimated] = React.useState(false)
     const [abyssFloors, setAbyssFloors] = React.useState([0, 0, 0, 0])
     const [primoSources, setPrimoSources] = React.useState(new MapZeroDefault())
-    const [day, setDay] = React.useState(DateTime.now())
-    const today = get_now()
+    const [day, setDay] = React.useState(today.plus({ days: 1 }))
 
     const sanitizeNumberInput = (val: string) => {
         const num = parseInt(val)
@@ -142,7 +142,7 @@ function App() {
 
     // Calc primos
     useEffect(() => {
-        let checkDay = DateTime.fromJSDate(today, { zone: 'utc' })
+        let checkDay = today.plus({ days: 1 })
         let welkinDaysLeft = welkinDays
         let currentBPLvl = bpLvl
         let expected = 0
@@ -155,10 +155,11 @@ function App() {
         const abyssStars = abyssFloors.reduce((a, b) => a+b)
 
         let events = [...Object.entries(Events).map(e => {
-            const event = {...e[1], interval: Interval.fromDateTimes(DateTime.fromISO(e[1].start, { zone:'utc' }), DateTime.fromISO(e[1].end, { zone:'utc' }).plus({ millisecond: 1 }))} as Event
+            const event = {...e[1], interval: Interval.fromDateTimes(DateTime.fromISO(e[1].start), DateTime.fromISO(e[1].end).plus({ millisecond: 1 }))} as Event
             return event
         })]
 
+        console.log(checkDay.toISODate(), day.toISODate())
         while (deltaDay(checkDay, day) >= 0) {
             increment('Daily', 60)
 
@@ -190,13 +191,15 @@ function App() {
             }
 
             // Reset BP Level & add Maintenance Compensation
+            const utc_day = DateTime.utc(checkDay.year, checkDay.month, checkDay.day)
             if (INTERVAL_30_33.contains(checkDay)) {
-                if (deltaDay(checkDay, INTERVAL_30_33.start) % 35 === 0) {
+                if (deltaDay(utc_day, INTERVAL_30_33.start) % 35 === 0) {
+                    console.log(utc_day.toISODate())
                     increment('Maintenance Compensation', 600)
                     currentBPLvl = 0
                 }
             } else {
-                if (deltaDay(checkDay, INTERVAL_30_33.end) % 42 === 0) {
+                if (deltaDay(utc_day, INTERVAL_30_33.end) % 42 === 0) {
                     increment('Maintenance Compensation', 600)
                     currentBPLvl = 0
                 }
