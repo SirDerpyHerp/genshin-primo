@@ -54,13 +54,12 @@
         "duration": 7
     },
     "FabulousFungus": {
-        "start": "2022-12-06",
-        "end": "2022-12-06",
+        "start": "2022-11-10",
+        "end": "2022-11-27",
         "name": "Fabulous Fungus Frenzy",
         "color": "#16a81b",
         "primos": 1000,
         "estimated": true,
-        "undated": true,
         "rushable": true
     },
     "OutsideCanvas": {
@@ -82,13 +81,17 @@
         "rushable": true
     },
     "AdventurersTrials": {
-        "start": "2022-12-06",
-        "end": "2022-12-06",
+        "start": "2022-11-04",
+        "end": "2022-11-24",
         "name": "Adventurer's Trials",
         "color": "#783a9c",
-        "primos": 420,
-        "undated": true,
-        "rushable": true
+        "primos": [
+            60,
+            60,
+            60,
+            60,
+            180
+        ]
     },
     "MarvelousMerchandise": {
         "start": "2022-12-06",
