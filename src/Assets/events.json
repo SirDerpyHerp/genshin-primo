@@ -58,22 +58,20 @@
         "end": "2022-11-27",
         "name": "Fabulous Fungus Frenzy",
         "color": "#16a81b",
-        "primos": 1000,
-        "estimated": true,
+        "primos": 960,
         "rushable": true
     },
     "OutsideCanvas": {
-        "start": "2022-12-06",
-        "end": "2022-12-06",
+        "start": "2022-11-16",
+        "end": "2022-12-04",
         "name": "Outside the Canvas, Inside the Lens",
         "color": "#95a34e",
         "primos": 420,
-        "undated": true,
-        "rushable": true
+        "duration": 7
     },
     "HypostaticSymphony": {
-        "start": "2022-12-06",
-        "end": "2022-12-06",
+        "start": "2022-11-24",
+        "end": "2022-12-04",
         "name": "Hypostatic Symphony: Dissonant Verse",
         "color": "#329485",
         "primos": 420,
@@ -94,12 +92,18 @@
         ]
     },
     "MarvelousMerchandise": {
-        "start": "2022-12-06",
-        "end": "2022-12-06",
+        "start": "2022-11-28",
+        "end": "2022-12-04",
         "name": "Marvelous Merchandise",
         "color": "#ab6c3c",
-        "primos": 380,
-        "undated": true,
-        "rushable": true
+        "primos": [
+            40,
+            40,
+            40,
+            40,
+            140,
+            40,
+            40
+        ]
     }
 }
