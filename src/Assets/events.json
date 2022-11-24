@@ -75,8 +75,7 @@
         "name": "Hypostatic Symphony: Dissonant Verse",
         "color": "#329485",
         "primos": 420,
-        "undated": true,
-        "rushable": true
+        "duration": 4
     },
     "AdventurersTrials": {
         "start": "2022-11-04",
