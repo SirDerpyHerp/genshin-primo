@@ -45,14 +45,6 @@
         "primos": 420,
         "duration": 6
     },
-    "StarSeekersSojourn": {
-        "start": "2022-10-21",
-        "end": "2022-10-30",
-        "name": "Star-Seeker's Sojourn",
-        "color": "#246e4e",
-        "primos": 420,
-        "duration": 7
-    },
     "FabulousFungus": {
         "start": "2022-11-10",
         "end": "2022-11-27",
@@ -111,5 +103,42 @@
             40,
             40
         ]
+    },
+    "AkitsuKimodameshi": {
+        "start": "2023-01-17",
+        "end": "2023-01-17",
+        "name": "Akitsu Kimodameshi",
+        "color": "#3f99d1",
+        "primos": 1000,
+        "undated": true,
+        "estimated": true,
+        "rushable": true
+    },
+    "MistyDungeon": {
+        "start": "2023-01-17",
+        "end": "2023-01-17",
+        "name": "Misty Dungeon: Realm of Sand",
+        "color": "#85715a",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "Windtrace": {
+        "start": "2023-01-17",
+        "end": "2023-01-17",
+        "name": "Windtrace",
+        "color": "#4d944f",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
+    },
+    "AcrossTheWilderness": {
+        "start": "2023-01-17",
+        "end": "2023-01-17",
+        "name": "Across The Wilderness",
+        "color": "#854a2d",
+        "primos": 420,
+        "undated": true,
+        "rushable": true
     }
 }
