@@ -1,58 +1,4 @@
 {
-    "ThankYouGift": {
-        "start": "2022-09-28",
-        "end": "2022-11-01",
-        "name": "Of Travels and Treasures: A Thank-You Gift",
-        "color": "#4d6482",
-        "primos": 1600,
-        "duration": 4
-    },
-    "OfBalladsAndBrews": {
-        "start": "2022-09-29",
-        "end": "2022-10-16",
-        "name": "Of Ballads and Brews",
-        "color": "#079ad9",
-        "primos": 1000
-    },
-    "HyakuninIkki": {
-        "start": "2022-10-10",
-        "end": "2022-10-23",
-        "name": "Hyakunin Ikki",
-        "color": "#b84e21",
-        "primos": 420,
-        "duration": 6
-    },
-    "PathOfGleamingJade": {
-        "start": "2022-10-14",
-        "end": "2022-10-30",
-        "name": "Path of Gleaming Jade",
-        "color": "#cf9936",
-        "primos": [
-            160,
-            0,
-            320,
-            0,
-            320,
-            0,
-            800
-        ]
-    },
-    "WindChase": {
-        "start": "2022-10-17",
-        "end": "2022-10-30",
-        "name": "Wind Chaser",
-        "color": "#02ad63",
-        "primos": 420,
-        "duration": 6
-    },
-    "FabulousFungus": {
-        "start": "2022-11-10",
-        "end": "2022-11-27",
-        "name": "Fabulous Fungus Frenzy",
-        "color": "#16a81b",
-        "primos": 960,
-        "rushable": true
-    },
     "OutsideCanvas": {
         "start": "2022-11-16",
         "end": "2022-12-04",
@@ -76,19 +22,6 @@
             105
         ]
     },
-    "AdventurersTrials": {
-        "start": "2022-11-04",
-        "end": "2022-11-24",
-        "name": "Adventurer's Trials",
-        "color": "#783a9c",
-        "primos": [
-            60,
-            60,
-            60,
-            60,
-            180
-        ]
-    },
     "MarvelousMerchandise": {
         "start": "2022-11-28",
         "end": "2022-12-04",
@@ -105,23 +38,21 @@
         ]
     },
     "AkitsuKimodameshi": {
-        "start": "2023-01-17",
-        "end": "2023-01-17",
+        "start": "2022-12-15",
+        "end": "2023-01-01",
         "name": "Akitsu Kimodameshi",
         "color": "#3f99d1",
         "primos": 1000,
-        "undated": true,
         "estimated": true,
         "rushable": true
     },
     "MistyDungeon": {
-        "start": "2023-01-17",
-        "end": "2023-01-17",
+        "start": "2022-12-09",
+        "end": "2022-12-18",
         "name": "Misty Dungeon: Realm of Sand",
         "color": "#85715a",
         "primos": 420,
-        "undated": true,
-        "rushable": true
+        "duration": 7
     },
     "Windtrace": {
         "start": "2023-01-17",

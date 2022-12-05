@@ -9,8 +9,6 @@ import Events from './Assets/events.json'
 //import Events from './Components/Events'
 import './App.css'
 
-const DAY_IN_MS = 86400000
-
 class MapZeroDefault extends Map<string, number> {
     get(key: string) {
         if (!this.has(key)) {
@@ -159,7 +157,6 @@ function App() {
             return event
         })]
 
-        console.log(checkDay.toISODate(), day.toISODate())
         while (deltaDay(checkDay, day) >= 0) {
             increment('Daily', 60)
 
