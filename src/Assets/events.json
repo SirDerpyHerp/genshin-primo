@@ -42,9 +42,13 @@
         "end": "2023-01-01",
         "name": "Akitsu Kimodameshi",
         "color": "#3f99d1",
-        "primos": 1000,
-        "estimated": true,
-        "rushable": true
+        "primos": [
+            330,
+            0,
+            330,
+            0,
+            330
+        ]
     },
     "MistyDungeon": {
         "start": "2022-12-09",
