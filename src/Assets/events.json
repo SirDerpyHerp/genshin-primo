@@ -64,12 +64,11 @@
         ]
     },
     "Windtrace": {
-        "start": "2023-01-17",
-        "end": "2023-01-17",
+        "start": "2022-12-23",
+        "end": "2023-01-05",
         "name": "Windtrace",
         "color": "#4d944f",
         "primos": 420,
-        "undated": true,
         "rushable": true
     },
     "AcrossTheWilderness": {
