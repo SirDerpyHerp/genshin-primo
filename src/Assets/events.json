@@ -72,12 +72,16 @@
         "rushable": true
     },
     "AcrossTheWilderness": {
-        "start": "2023-01-17",
-        "end": "2023-01-17",
+        "start": "2023-01-03",
+        "end": "2023-01-12",
         "name": "Across The Wilderness",
         "color": "#854a2d",
-        "primos": 420,
-        "undated": true,
-        "rushable": true
+        "primos": [
+            100,
+            80,
+            80,
+            80,
+            80
+        ]
     }
 }
