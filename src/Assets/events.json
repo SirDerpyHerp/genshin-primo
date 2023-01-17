@@ -1,42 +1,4 @@
 {
-    "OutsideCanvas": {
-        "start": "2022-11-16",
-        "end": "2022-12-04",
-        "name": "Outside the Canvas, Inside the Lens",
-        "color": "#95a34e",
-        "primos": 420,
-        "duration": 7
-    },
-    "HypostaticSymphony": {
-        "start": "2022-11-24",
-        "end": "2022-12-04",
-        "name": "Hypostatic Symphony: Dissonant Verse",
-        "color": "#329485",
-        "primos": [
-            105,
-            0,
-            105,
-            0,
-            105,
-            0,
-            105
-        ]
-    },
-    "MarvelousMerchandise": {
-        "start": "2022-11-28",
-        "end": "2022-12-04",
-        "name": "Marvelous Merchandise",
-        "color": "#ab6c3c",
-        "primos": [
-            40,
-            40,
-            40,
-            40,
-            140,
-            40,
-            40
-        ]
-    },
     "AkitsuKimodameshi": {
         "start": "2022-12-15",
         "end": "2023-01-01",
@@ -48,19 +10,6 @@
             330,
             0,
             330
-        ]
-    },
-    "MistyDungeon": {
-        "start": "2022-12-09",
-        "end": "2022-12-18",
-        "name": "Misty Dungeon: Realm of Sand",
-        "color": "#85715a",
-        "primos": [
-            120,
-            0,
-            120,
-            0,
-            180
         ]
     },
     "Windtrace": {
@@ -83,5 +32,67 @@
             80,
             80
         ]
+    },
+    "TheExquisiteNightChimes": {
+        "start": "2023-01-19",
+        "end": "2023-02-05",
+        "name": "The Exquisite Night Chimes",
+        "color": "#45998c",
+        "primos": 1000,
+        "undated": true,
+        "estimated": true,
+        "rushable": true
+    },
+    "IridescentSplendor": {
+        "start": "2023-02-05",
+        "end": "2023-02-09",
+        "name": "Iridescent Splendor",
+        "color": "#864ac7",
+        "primos": [
+            160,
+            0,
+            160,
+            0,
+            160
+        ]
+    },
+    "MayFortuneFindYou": {
+        "start": "2023-01-19",
+        "end": "2023-02-02",
+        "name": "May Fortune Find You",
+        "color": "#d47637",
+        "primos": [
+            160,
+            0,
+            320,
+            0,
+            320,
+            0,
+            800
+        ]
+    },
+    "SecondBlooming": {
+        "start": "2023-01-31",
+        "end": "2023-02-12",
+        "name": "Second Blooming",
+        "color": "#4e9c4c",
+        "primos": 420,
+        "undated": true
+    },
+    "WarriorsSpirit": {
+        "start": "2023-02-09",
+        "end": "2023-02-19",
+        "name": "Warrior's Spirit",
+        "color": "#e03516",
+        "primos": 420,
+        "undated": true
+    },
+    "AratakiExtraordinary": {
+        "start": "2023-02-16",
+        "end": "2023-02-26",
+        "name": "Almighty Arataki Extreme Beetle Brawl",
+        "color": "#4e91d9",
+        "primos": 420,
+        "undated": true
     }
 }
