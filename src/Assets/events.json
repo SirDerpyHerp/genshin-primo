@@ -77,7 +77,8 @@
         "name": "Second Blooming",
         "color": "#4e9c4c",
         "primos": 420,
-        "undated": true
+        "undated": true,
+        "rushable": true
     },
     "WarriorsSpirit": {
         "start": "2023-02-09",
@@ -85,7 +86,8 @@
         "name": "Warrior's Spirit",
         "color": "#e03516",
         "primos": 420,
-        "undated": true
+        "undated": true,
+        "rushable": true
     },
     "AratakiExtraordinary": {
         "start": "2023-02-16",
@@ -93,6 +95,7 @@
         "name": "Almighty Arataki Extreme Beetle Brawl",
         "color": "#4e91d9",
         "primos": 420,
-        "undated": true
+        "undated": true,
+        "rushable": true
     }
 }
