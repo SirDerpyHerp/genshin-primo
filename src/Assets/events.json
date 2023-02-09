@@ -89,8 +89,14 @@
         "end": "2023-02-19",
         "name": "Warrior's Spirit",
         "color": "#e03516",
-        "primos": 420,
-        "rushable": true
+        "primos": [
+            80,
+            60,
+            80,
+            60,
+            80,
+            60
+        ]
     },
     "AratakiExtraordinary": {
         "start": "2023-02-16",
