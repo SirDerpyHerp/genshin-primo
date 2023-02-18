@@ -103,7 +103,49 @@
         "end": "2023-02-26",
         "name": "Almighty Arataki Extreme Beetle Brawl",
         "color": "#4e91d9",
+        "primos": [
+            100,
+            80,
+            80,
+            80,
+            80
+        ]
+    },
+    "WindblumesBreath": {
+        "start": "2023-04-11",
+        "end": "2023-04-11",
+        "name": "Windblume's Breath",
+        "color": "#18c78d",
+        "primos": 1000,
+        "rushable": true,
+        "undated": true,
+        "estimated": true
+    },
+    "SpicesFromTheWest": {
+        "start": "2023-04-11",
+        "end": "2023-04-11",
+        "name": "Spices from the West: Northerly Search",
+        "color": "#2d6b3a",
         "primos": 420,
-        "rushable": true
+        "rushable": true,
+        "undated": true
+    },
+    "VibroCrystal": {
+        "start": "2023-04-11",
+        "end": "2023-04-11",
+        "name": "Vibro-Crystal Verification",
+        "color": "#6344b8",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
+    },
+    "FungusMechanicus": {
+        "start": "2023-04-11",
+        "end": "2023-04-11",
+        "name": "Fungus Mechanicus",
+        "color": "#76b03c",
+        "primos": 420,
+        "rushable": true,
+        "undated": true
     }
 }
