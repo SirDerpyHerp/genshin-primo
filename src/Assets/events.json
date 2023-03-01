@@ -112,13 +112,12 @@
         ]
     },
     "WindblumesBreath": {
-        "start": "2023-04-11",
-        "end": "2023-04-11",
+        "start": "2023-03-03",
+        "end": "2023-03-19",
         "name": "Windblume's Breath",
         "color": "#18c78d",
         "primos": 1000,
         "rushable": true,
-        "undated": true,
         "estimated": true
     },
     "SpicesFromTheWest": {
@@ -131,8 +130,8 @@
         "undated": true
     },
     "VibroCrystal": {
-        "start": "2023-04-11",
-        "end": "2023-04-11",
+        "start": "2023-03-14",
+        "end": "2023-03-26",
         "name": "Vibro-Crystal Verification",
         "color": "#6344b8",
         "primos": 420,
