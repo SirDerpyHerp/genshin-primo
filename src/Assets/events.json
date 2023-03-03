@@ -116,9 +116,14 @@
         "end": "2023-03-19",
         "name": "Windblume's Breath",
         "color": "#18c78d",
-        "primos": 1000,
-        "rushable": true,
-        "estimated": true
+        "primos": [
+            220,
+            100,
+            220,
+            100,
+            220,
+            100
+        ]
     },
     "SpicesFromTheWest": {
         "start": "2023-04-11",
