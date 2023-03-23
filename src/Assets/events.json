@@ -1,116 +1,4 @@
 {
-    "AkitsuKimodameshi": {
-        "start": "2022-12-15",
-        "end": "2023-01-01",
-        "name": "Akitsu Kimodameshi",
-        "color": "#3f99d1",
-        "primos": [
-            330,
-            0,
-            330,
-            0,
-            330
-        ]
-    },
-    "Windtrace": {
-        "start": "2022-12-23",
-        "end": "2023-01-05",
-        "name": "Windtrace",
-        "color": "#4d944f",
-        "primos": 420,
-        "rushable": true
-    },
-    "AcrossTheWilderness": {
-        "start": "2023-01-03",
-        "end": "2023-01-12",
-        "name": "Across The Wilderness",
-        "color": "#854a2d",
-        "primos": [
-            100,
-            80,
-            80,
-            80,
-            80
-        ]
-    },
-    "TheExquisiteNightChimes": {
-        "start": "2023-01-19",
-        "end": "2023-02-05",
-        "name": "The Exquisite Night Chimes",
-        "color": "#45998c",
-        "primos": [
-            270,
-            0,
-            260,
-            0,
-            240,
-            0,
-            180
-        ]
-    },
-    "IridescentSplendor": {
-        "start": "2023-02-05",
-        "end": "2023-02-09",
-        "name": "Iridescent Splendor",
-        "color": "#864ac7",
-        "primos": [
-            160,
-            0,
-            160,
-            0,
-            160
-        ]
-    },
-    "MayFortuneFindYou": {
-        "start": "2023-01-19",
-        "end": "2023-02-02",
-        "name": "May Fortune Find You",
-        "color": "#d47637",
-        "primos": [
-            160,
-            0,
-            320,
-            0,
-            320,
-            0,
-            800
-        ]
-    },
-    "SecondBlooming": {
-        "start": "2023-01-31",
-        "end": "2023-02-12",
-        "name": "Second Blooming",
-        "color": "#4e9c4c",
-        "primos": 420,
-        "rushable": true
-    },
-    "WarriorsSpirit": {
-        "start": "2023-02-09",
-        "end": "2023-02-19",
-        "name": "Warrior's Spirit",
-        "color": "#e03516",
-        "primos": [
-            80,
-            60,
-            80,
-            60,
-            80,
-            60
-        ]
-    },
-    "AratakiExtraordinary": {
-        "start": "2023-02-16",
-        "end": "2023-02-26",
-        "name": "Almighty Arataki Extreme Beetle Brawl",
-        "color": "#4e91d9",
-        "primos": [
-            100,
-            80,
-            80,
-            80,
-            80
-        ]
-    },
     "WindblumesBreath": {
         "start": "2023-03-03",
         "end": "2023-03-19",
@@ -126,8 +14,8 @@
         ]
     },
     "SpicesFromTheWest": {
-        "start": "2023-04-11",
-        "end": "2023-04-11",
+        "start": "2023-03-31",
+        "end": "2023-04-09",
         "name": "Spices from the West: Northerly Search",
         "color": "#2d6b3a",
         "primos": 420,
@@ -140,16 +28,22 @@
         "name": "Vibro-Crystal Verification",
         "color": "#6344b8",
         "primos": 420,
-        "rushable": true,
-        "undated": true
+        "rushable": true
     },
     "FungusMechanicus": {
-        "start": "2023-04-11",
-        "end": "2023-04-11",
+        "start": "2023-03-23",
+        "end": "2023-04-02",
         "name": "Fungus Mechanicus",
         "color": "#76b03c",
-        "primos": 420,
-        "rushable": true,
-        "undated": true
+        "primos": [
+            70,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
     }
 }
