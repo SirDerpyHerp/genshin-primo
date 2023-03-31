@@ -19,8 +19,7 @@
         "name": "Spices from the West: Northerly Search",
         "color": "#2d6b3a",
         "primos": 420,
-        "rushable": true,
-        "undated": true
+        "duration": 7
     },
     "VibroCrystal": {
         "start": "2023-03-14",
