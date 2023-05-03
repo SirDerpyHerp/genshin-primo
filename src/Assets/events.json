@@ -1,67 +1,17 @@
 {
-    "SpicesFromTheWest": {
-        "start": "2023-03-31",
-        "end": "2023-04-09",
-        "name": "Spices from the West: Northerly Search",
-        "color": "#2d6b3a",
-        "primos": 420,
-        "duration": 7
-    },
-    "FungusMechanicus": {
-        "start": "2023-03-23",
-        "end": "2023-04-02",
-        "name": "Fungus Mechanicus",
-        "color": "#76b03c",
-        "primos": [
-            70,
-            50,
-            50,
-            50,
-            50,
-            50,
-            50,
-            50
-        ]
-    },
-    "BrewingDevelopments": {
-        "start": "2023-04-13",
-        "end": "2023-04-23",
-        "name": "Brewing Developments",
-        "color": "#288a4a",
-        "primos": [
-            120,
-            0,
-            90,
-            0,
-            90,
-            0,
-            120
-        ]
-    },
-    "FulminatingSandstorm": {
-        "start": "2023-04-21",
-        "end": "2023-04-30",
-        "name": "Fulminating Sandstorm",
-        "color": "#a66d0c",
-        "primos": 420,
-        "rushable": true
-    },
     "ParadeOfProvidence": {
         "start": "2023-04-27",
         "end": "2023-05-14",
         "name": "A Parade of Providence",
         "color": "#a69607",
-        "primos": 1000,
-        "rushable": true,
-        "estimated": true
+        "primos": 970
     },
     "RecollectorsPath": {
-        "start": "2023-05-23",
-        "end": "2023-05-23",
+        "start": "2023-05-08",
+        "end": "2023-05-21",
         "name": "The Recollector's Path",
         "color": "#8f2f03",
         "primos": 420,
-        "rushable": true,
-        "undated": true
+        "rushable": true
     }
 }
