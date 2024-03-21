@@ -14,6 +14,16 @@ const config = {
 			}
 		},
 		extend: {
+			fontSize: {
+				'2vh': '2vh'
+			},
+			height: {
+				'vh': '95vh',
+				'1/10': '10%',
+				'2/10': '20%',
+				'3/10': '30%',
+				'4/10': '40%'
+			},
 			colors: {
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
@@ -57,7 +67,7 @@ const config = {
 			fontFamily: {
 				sans: [...fontFamily.sans]
 			}
-		}
+		},
 	},
 };
 
