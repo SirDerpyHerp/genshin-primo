@@ -38,8 +38,6 @@ export function calc_character(pity: number, pulls: number, guarantee: boolean) 
         }   
     }
 
-    // console.log(gf_coeffs[3][105])
-
     const non_guarantee_filer = [0, .5, .5]
     const filter = guarantee ? [0, 1, 0] : non_guarantee_filer
     let path_gf_coeffs = Array<number[]>(cons + 1)
@@ -170,7 +168,6 @@ export function calc_char_and_wep(c_pity: number, c_guarantee: boolean, w_pity: 
             if (refine > 0 && con > 0) {
                 const char = char_res[con-1].slice(c_pity)
                 const wep = wep_res[refine-1].slice(w_pity)
-                // console.log(con-1, refine)
                 
                 // Poly multiplication is very expensive
                 if ((pulls + c_pity + w_pity) < 180*7 + 77*3*5) {
@@ -187,6 +184,5 @@ export function calc_char_and_wep(c_pity: number, c_guarantee: boolean, w_pity: 
     }
 
     result[0][0] = 1
-    // console.log(result)
     return [result, char_res, wep_res]
 }
