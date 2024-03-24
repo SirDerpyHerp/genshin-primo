@@ -24,7 +24,7 @@
         <Separator/>
     </Card.Header>
     <Card.Content class='h-80'>
-        <ScrollArea class="h-72 overflow-y-scroll">
+        <ScrollArea class="h-[18.5rem]">
             <div class="w-[calc(100%-0.75rem)]">
                 {#each [...currentState].sort((n1, n2) => (n2[1] > n1[1]) ? 1 : -1) as [id, amount]}
                     {#if amount > 0}
