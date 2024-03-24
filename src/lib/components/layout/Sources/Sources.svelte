@@ -3,6 +3,7 @@
     import { Label } from "$lib/components/ui/label";
     import { Separator } from "$lib/components/ui/separator/";
     import { source_state } from "$lib/store/source_state";
+    import { ScrollArea } from "$lib/components/ui/scroll-area/";
     import SourceItem from "./SourceItem.svelte";
 
     function toTitleCase(str: string) {
@@ -17,16 +18,20 @@
     $: currentState = $source_state
 </script>
 
-<Card.Root class='h-full px-2]'>
+<Card.Root class='px-2 overflow-hidden'>
     <Card.Header>
         <Label class='text-lg'>Sources</Label>
         <Separator/>
     </Card.Header>
-    <Card.Content class='flex flex-wrap'>
-        {#each [...currentState].sort((n1, n2) => (n2[1] > n1[1]) ? 1 : -1) as [id, amount]}
-            {#if amount > 0}
-                <SourceItem title={toTitleCase(id)} amount={amount}/>
-            {/if}
-        {/each}
+    <Card.Content class='h-80'>
+        <ScrollArea class="h-72 overflow-y-scroll">
+            <div class="w-[calc(100%-0.75rem)]">
+                {#each [...currentState].sort((n1, n2) => (n2[1] > n1[1]) ? 1 : -1) as [id, amount]}
+                    {#if amount > 0}
+                        <SourceItem title={toTitleCase(id)} amount={amount}/>
+                    {/if}
+                {/each}
+            </div>
+        </ScrollArea>
     </Card.Content>
 </Card.Root>
