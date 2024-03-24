@@ -32,8 +32,8 @@
 
 <Card.Root class='px-2 flex'>
     <div class="grid gap-4 p-6 grid-cols-1 flex-1">
-        <NoCheckboxNumInput input={numInput('primo')} title='Primogems' placeholder="Saved up primogems."/>
-        <NoCheckboxNumInput input={numInput('pulls')} title="Pulls" placeholder="Saved up pulls"/>
+        <NoCheckboxNumInput input={numInput('primo')} title='Primogems' placeholder="Saved up primogems." canNegative/>
+        <NoCheckboxNumInput input={numInput('pulls')} title="Pulls" placeholder="Saved up pulls" canNegative/>
         <div class='grid gap-2'>
             <CheckboxInput input={checkboxInput('charGuarantee')} title="Character Guarantee"/>
             <NoCheckboxNumInput input={numInput('charPity')} title="Character Pity" placeholder="Pity in the character banner." max={89}/>

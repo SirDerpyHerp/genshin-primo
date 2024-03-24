@@ -155,7 +155,7 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
     })
 
     const totalPrimos = state.primo + dailyPrimos + welkinPrimos + abyssPrimos + maintenancePrimos + streamPrimos + bpPrimos + totalEventPrimos
-    const totalPulls = Math.floor(totalPrimos/160) + state.pulls
+    const totalPulls = Math.max(0, Math.floor(totalPrimos/160) + state.pulls)
     const pull_state = {
         pulls: totalPulls,
         charPity: state.charPity,

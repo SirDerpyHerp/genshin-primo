@@ -10,6 +10,7 @@
     export let max: number | null = null;
     export let input: (checked: boolean, value: string) => void
     export let defaultOn: boolean = false
+    export let canNegative: boolean = false
 
     $: checked = writable(defaultOn)
     $: value = ''
@@ -22,10 +23,21 @@
         const target = e.target as HTMLTextAreaElement
         if (!target) return
         
-        const n = parseInt(target.value)
-        if (target.value == '' || n < 0) {
+        const n = parseInt(target.value, 10)
+        console.log(n, target.value)
+        if (target.value == '') {
             target.value = ''
             value = ''
+            return
+        }
+        if (Number.isNaN(n)) {
+            value = ''
+            if (!(target.value == '-' && canNegative)) target.value = ''
+            return
+        }
+        if ((n < 0 && !canNegative)) {
+            target.value = n < 0 ? `${-n}` : ''
+            value = target.value
             return
         }
 
