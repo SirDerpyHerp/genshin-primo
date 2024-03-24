@@ -1,3 +1,8 @@
+// If you're here, you're probably wondering how this works
+// I didn't come up with this! This was originally made by Bryli06 (https://github.com/Bryli06/akasha-serverless/)
+// I just transcribed it to TS and extended some of the functionalities
+// Bryli06's math explanation: https://drive.google.com/file/d/1EECcjNVpfiOTqRoS48hHWqH2Ake902vq/view
+
 const CHAR_PROB = 0.006
 const CHAR_RAMP = CHAR_PROB * 10
 
