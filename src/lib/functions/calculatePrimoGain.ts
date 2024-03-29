@@ -129,7 +129,7 @@ function calcEvents(state: InputState) {
 
 function calcPaimonsBargains(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
-    const monthsToUpdate = dateToUpdate.getMonth() - now.getMonth()
+    const monthsToUpdate = dateToUpdate.getMonth() - now.getMonth() + 12*(dateToUpdate.getFullYear() - now.getFullYear())
 
     return monthsToUpdate*5*160
 }
