@@ -2,8 +2,9 @@ import { events, events_updated_until } from "$lib/data/events"
 import { assumed_last_minor_ver, base_ver, base_version_start, min_ver } from "$lib/data/version_start"
 import type { InputState } from "$lib/types/states"
 import type { Version } from "$lib/types/version"
+import { DateTime } from 'luxon'
 
-const now = new Date()
+const now = DateTime.now()
 const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
 
 function getVersionInt(ver: Version) {
@@ -29,15 +30,14 @@ function countOdd(l: number, r: number) {
     return Math.floor((r - l) / 2) + ((l % 2 != 0 || r % 2 != 0) ? 1 : 0)
 }
 
-function getUpdateDate(ver: Version) {
+export function getUpdateDate(ver: Version): DateTime {
     const phaseGap = getVersionInt(ver) - getVersionInt(base_ver) + 1
 
-    return new Date(base_version_start.valueOf() + phaseGap * 21 * MILLISECONDS_IN_DAY - MILLISECONDS_IN_DAY)
+    return DateTime.fromMillis(base_version_start.valueOf() + phaseGap * 21 * MILLISECONDS_IN_DAY - MILLISECONDS_IN_DAY, {zone: 'utc'})
 }
 
 function calcDailies(state: InputState) {
-    const dateToUpdate = getUpdateDate(state.ver)
-    const daysTilUpdate = Math.floor((dateToUpdate.valueOf() - now.valueOf()) / MILLISECONDS_IN_DAY)
+    const daysTilUpdate = Math.floor(getUpdateDate(state.ver).diffNow('days').days)
 
     const welkinPrimos = 90 * (daysTilUpdate > state.welkin ? state.welkin : daysTilUpdate)
     const dailyPrimos = 60 * daysTilUpdate
@@ -59,8 +59,8 @@ function calcPerVer(state: InputState) {
 
 function calcAbyss(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
-    const monthsTilUpdate = (dateToUpdate.getFullYear() - now.getFullYear())*12 - now.getMonth() + dateToUpdate.getMonth()
-    const abyssResets = Math.max((monthsTilUpdate - 1)*2, 0) + (now.getDate() > 1 && now.getDate() < 16 ? 1 : 0) + (dateToUpdate.getDate() > 1 ? 1 : 0) + (dateToUpdate.getDate() > 16 ? 1 : 0)
+    const monthsTilUpdate = dateToUpdate.month - now.month
+    const abyssResets = Math.max(0, (monthsTilUpdate - 1)*2) + (now.day > 1 && now.day < 16 ? 1 : 0) + (dateToUpdate.day > 1 ? 1 : 0) + (dateToUpdate.day > 16 ? 1 : 0)
     const abyssPrimos = Math.floor(state.abyss/3) * 50 * abyssResets
 
     return abyssPrimos
@@ -72,9 +72,9 @@ function calcBP(state: InputState) {
     const lastVer = getVersionInt(state.ver)
     const verCount = countOdd(currentVer, lastVer) - (min_ver.phase == 1 ? 1 : 0)
 
-    const nextPhaseDate = new Date(getUpdateDate(min_ver).valueOf() + MILLISECONDS_IN_DAY)
-    const daysTilNextPhase = Math.floor((nextPhaseDate.valueOf() - now.valueOf()) / MILLISECONDS_IN_DAY)
-    const mondaysBetweenNowAndNextPhase = Math.floor(daysTilNextPhase / 7) + (now.getDay() == 0 ? 1 : 0)
+    const nextPhaseDate = getUpdateDate(min_ver).plus({ days: 1 })
+    const daysTilNextPhase = Math.floor(nextPhaseDate.diffNow('days').days)
+    const mondaysBetweenNowAndNextPhase = Math.floor(daysTilNextPhase / 7) + (now.weekday == 1 ? 2 : 1)
 
     const maxBP = Math.min(verCount, state.bpAmount)
 
@@ -128,8 +128,7 @@ function calcEvents(state: InputState) {
 }
 
 function calcPaimonsBargains(state: InputState) {
-    const dateToUpdate = getUpdateDate(state.ver)
-    const monthsToUpdate = dateToUpdate.getMonth() - now.getMonth() + 12*(dateToUpdate.getFullYear() - now.getFullYear())
+    const monthsToUpdate = getUpdateDate(state.ver).month - now.month
 
     return monthsToUpdate*5*160
 }

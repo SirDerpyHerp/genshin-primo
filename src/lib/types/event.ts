@@ -1,6 +1,8 @@
+import type { DateTime } from "luxon"
+
 export type Event = {
     name: string
     reward: number
-    start: Date
-    end: Date
+    start: DateTime
+    end: DateTime
 }

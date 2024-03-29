@@ -6,8 +6,9 @@
     import { input_state } from "../../store/pull_state";
     import type { Event } from "$lib/types/event";
     import CheckboxNumInput from "../ui/input/CheckboxNumInput.svelte";
+    import { DateTime } from 'luxon'
 
-    const now = new Date()
+    const now = DateTime.now()
 
     function input(e: Event) {
         return (checked: boolean, value: string) => {
