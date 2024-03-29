@@ -1,7 +1,7 @@
 const CHAR_PROB = 0.006
 const CHAR_RAMP = CHAR_PROB * 10
 
-const CHAR_PROB_FUNC = Array.from(Array(91).keys()).map(i => i > 0 ? (i < 73 ? CHAR_PROB : CHAR_PROB + CHAR_RAMP*(i - 73)) : 0)
+const CHAR_PROB_FUNC = Array.from(Array(91).keys()).map(i => i > 0 ? (i < 73 ? CHAR_PROB : Math.min(1, CHAR_PROB + CHAR_RAMP*(i - 73))) : 0)
 const CHAR_PROB_COMPLEMENT = CHAR_PROB_FUNC.map(v => 1 - v)
 const CHAR_CDF = CHAR_PROB_FUNC.map((v, i) => CHAR_PROB_COMPLEMENT.slice(0, i).reduce((cum, val) => cum * val, 1) * v)
 
@@ -16,6 +16,8 @@ export function calc_character(pity: number, pulls: number, guarantee: boolean) 
     const cons = 6
     const pity_sum = CHAR_CDF.slice(0, pity+1).reduce((cum, val) => cum += val, 0)
     let gf_coeffs: number[][] = Array<number[]>(2*(cons + 1))
+
+    pulls = Math.min(180*7 + 77*3*5, pulls)
     
     gf_coeffs[0] = Array<number>(pity + pulls + 92).fill(0)
     for (let i = pity+1; i < 91; i++) {
@@ -26,7 +28,7 @@ export function calc_character(pity: number, pulls: number, guarantee: boolean) 
         for (let j = 1; j < Math.min(90*i+1, pulls+pity); j++) {
             const temp = gf_coeffs[i-1][j]
             for (let k = 0; k < 91; k++) {
-                gf_coeffs[i][j+k] += temp * CHAR_CDF[k]
+                gf_coeffs[i][j+k] = Math.min(1, gf_coeffs[i][j+k] + temp * CHAR_CDF[k])
             }
         }   
     }
@@ -57,8 +59,8 @@ export function calc_character(pity: number, pulls: number, guarantee: boolean) 
         ans[i] = Array<number>(pity + pulls + 92).fill(0)
     }
 
-    // This is the actually slow function, just return 100% if pulls are too big
-    if (pulls < 3000) {
+    // This is the actually slow function for super big Ns, just return 100% if pulls are too big
+    if ((pulls + pity) < 3000) {
         path_gf_coeffs.forEach((prob, con) => {
             prob.slice(1).forEach((x, i) => {
                 if (i < 1100) {
@@ -82,6 +84,8 @@ export function calc_weapon(pity: number, pulls: number, fate: number, guarantee
     const refine = 5
     const pity_sum = WEP_CDF.slice(0, pity+1).reduce((cum, val) => cum += val, 0)
     let gf_coeffs: number[][] = Array<number[]>(3*refine)
+
+    pulls = Math.min(180*7 + 77*3*5, pulls)
     
     gf_coeffs[0] = Array<number>(pity + pulls + 79).fill(0)
     for (let i = pity+1; i < 78; i++) {
@@ -123,8 +127,8 @@ export function calc_weapon(pity: number, pulls: number, fate: number, guarantee
         ans[i] = Array<number>(pity + pulls + 79).fill(0)
     }
 
-    // This is the actually slow function, just return 100% if pulls are too big
-    if (pulls < 3000) {
+    // This is the actually slow function for super big Ns, just return 100% if pulls are too big
+    if ((pulls + pity) < 3000) {
         path_gf_coeffs.forEach((prob, r) => {
             prob.slice(1).forEach((x, i) => {
                 ans[r] = ans[r].map((v, k) => Math.max(0, Math.min(1, v + (x * gf_coeffs[i][k]))))
@@ -164,7 +168,7 @@ export function calc_char_and_wep(c_pity: number, c_guarantee: boolean, w_pity: 
                 // console.log(con-1, refine)
                 
                 // Poly multiplication is very expensive
-                if (pulls < 2700) {
+                if ((pulls + c_pity + w_pity) < 180*7 + 77*3*5) {
                     result[con][refine] = multiplyPolys(char, wep).slice(0, pulls+1).reduce((c, v) => c += v, 0)
                 } else {
                     result[con][refine] = 1
