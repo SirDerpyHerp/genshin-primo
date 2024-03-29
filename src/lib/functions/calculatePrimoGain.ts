@@ -127,6 +127,13 @@ function calcEvents(state: InputState) {
     return eventPrimos
 }
 
+function calcPaimonsBargains(state: InputState) {
+    const dateToUpdate = getUpdateDate(state.ver)
+    const monthsToUpdate = dateToUpdate.getMonth() - now.getMonth()
+
+    return monthsToUpdate*5*160
+}
+
 export function calculatePrimos(state: InputState): [number, typeof pull_state, Map<string, number>] {
     const newSourceMap = new Map<string, number>()
     const [welkinPrimos, dailyPrimos] = calcDailies(state)
@@ -138,6 +145,9 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
 
     newSourceMap.set(`maintenance`, maintenancePrimos)
     newSourceMap.set(`stream`, streamPrimos)
+
+    const paimonsBargainsPrimos = calcPaimonsBargains(state)
+    newSourceMap.set("paimon's bargains", paimonsBargainsPrimos)
 
     const abyssPrimos = calcAbyss(state)
 
@@ -154,7 +164,7 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
         totalEventPrimos += val
     })
 
-    const totalPrimos = state.primo + dailyPrimos + welkinPrimos + abyssPrimos + maintenancePrimos + streamPrimos + bpPrimos + totalEventPrimos
+    const totalPrimos = state.primo + dailyPrimos + welkinPrimos + abyssPrimos + maintenancePrimos + paimonsBargainsPrimos + streamPrimos + bpPrimos + totalEventPrimos
     const totalPulls = Math.max(0, Math.floor(totalPrimos/160) + state.pulls)
     const pull_state = {
         pulls: totalPulls,
