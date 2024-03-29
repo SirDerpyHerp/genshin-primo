@@ -20,7 +20,7 @@
 </header>
 
 <ModeWatcher defaultMode={"dark"}/>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 py-2 h-[128rem] lg:h-vh">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 py-2 h-[128rem] lg:h-vh ">
     <div class='row-span-1 md:row-span-1'>
         <VersionPicker/>
     </div>
@@ -36,5 +36,7 @@
     </div>
     <div class='row-span-5 lg:col-start-2 lg:row-start-6 lg:row-end-13'>
         <Sources/>
+        <!-- Bottom Padding -->
+        <div class='h-4'/>
     </div>
 </div>
