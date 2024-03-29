@@ -59,7 +59,7 @@ function calcPerVer(state: InputState) {
 
 function calcAbyss(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
-    const monthsTilUpdate = dateToUpdate.month - now.month
+    const monthsTilUpdate = Math.floor(dateToUpdate.diffNow('months').months)
     const abyssResets = Math.max(0, (monthsTilUpdate - 1)*2) + (now.day > 1 && now.day < 16 ? 1 : 0) + (dateToUpdate.day > 1 ? 1 : 0) + (dateToUpdate.day > 16 ? 1 : 0)
     const abyssPrimos = Math.floor(state.abyss/3) * 50 * abyssResets
 
@@ -128,7 +128,7 @@ function calcEvents(state: InputState) {
 }
 
 function calcPaimonsBargains(state: InputState) {
-    const monthsToUpdate = getUpdateDate(state.ver).month - now.month
+    const monthsToUpdate = Math.floor(getUpdateDate(state.ver).diffNow('months').months)
 
     return monthsToUpdate*5*160
 }
