@@ -8,6 +8,7 @@
     export let input: (value: string) => void
     export let max: number | null = null
     export let disabled: boolean = false
+    export let canNegative: boolean = false
 
     $: if (disabled) {
         input('')
@@ -19,10 +20,21 @@
         const target = e.target as HTMLTextAreaElement
         if (!target) return
         
-        const n = parseInt(target.value)
-        if (target.value == '' || n < 0) {
+        const n = parseInt(target.value, 10)
+        console.log(n, target.value)
+        if (target.value == '') {
             target.value = ''
             value = ''
+            return
+        }
+        if (Number.isNaN(n)) {
+            value = ''
+            if (!(target.value == '-' && canNegative)) target.value = ''
+            return
+        }
+        if ((n < 0 && !canNegative)) {
+            target.value = n < 0 ? `${-n}` : ''
+            value = target.value
             return
         }
 
@@ -37,5 +49,5 @@
     {#if title}
         <Label class="flex items-center p-1">{title}:</Label>
     {/if}
-    <Input type="number" placeholder={placeholder} on:input={sanitizeAndBind} on:input={() => input(value)} disabled={disabled}/>
+    <Input type="tel" placeholder={placeholder} on:input={sanitizeAndBind} on:input={() => input(value)} disabled={disabled}/>
 </div>
