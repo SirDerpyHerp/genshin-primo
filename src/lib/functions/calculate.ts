@@ -51,7 +51,7 @@ function calcPerVer(state: InputState) {
     const verCount = countOdd(currentVer, lastVer)
 
     const streamCount = (lastVer - currentVer + 1) - verCount
-    const maintenancePrimos = (verCount - (min_ver.phase == 1 ? 1 : 0)) * 300
+    const maintenancePrimos = (verCount - (min_ver.phase == 1 ? 1 : 0)) * 600
     const streamPrimos = streamCount * 300
 
     return [maintenancePrimos, streamPrimos]
