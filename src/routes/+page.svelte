@@ -6,9 +6,9 @@
     import Sources from "$lib/components/layout/Sources/Sources.svelte";
     import GraphsCard from "$lib/components/layout/Graphs/GraphsCard.svelte"
 
-    import * as Card from "$lib/components/ui/card/index"
     import { Label } from "$lib/components/ui/label";
     import { ModeWatcher } from "mode-watcher";
+    import "../app.pcss";
 </script>
 
 <svelte:head>
