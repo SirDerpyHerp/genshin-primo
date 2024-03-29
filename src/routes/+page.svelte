@@ -9,18 +9,20 @@
     import { Label } from "$lib/components/ui/label";
     import { ModeWatcher } from "mode-watcher";
     import "../app.pcss";
+    import InfoModal from "$lib/components/layout/InfoModal/InfoModal.svelte";
 </script>
 
 <svelte:head>
     <title>Genshin Primo Planner</title>
 </svelte:head>
 
-<header class='flex justify-center items-center px-2'>
-    <Label class='h-full text-3xl'>Genshin Primo Planner</Label>
+<header class='flex lg:justify-center lg:pl-6 px-4 py-1 pt-2'>
+    <Label class='h-full text-2xl lg:text-4xl lg:ml-auto'>Genshin Primo Planner</Label>
+    <InfoModal/>
 </header>
 
 <ModeWatcher defaultMode={"dark"}/>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 py-2 h-[128rem] lg:h-vh ">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 py-1 h-[128rem] lg:h-vh ">
     <div class='row-span-1 md:row-span-1'>
         <VersionPicker/>
     </div>
