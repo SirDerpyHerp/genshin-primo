@@ -3,7 +3,7 @@
     import { input_state, pull_state } from "../../store/pull_state";
     import { onMount } from "svelte";
     import { Label } from "../ui/label";
-    import { calculatePrimos } from "$lib/functions/calculate";
+    import { calculatePrimos } from "$lib/functions/calculatePrimoGain";
     import { source_state } from "$lib/store/source_state";
     $: totalPulls = 0
 
