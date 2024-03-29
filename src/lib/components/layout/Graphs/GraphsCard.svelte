@@ -15,7 +15,7 @@
     $: pity = 0
 
     function update(state: typeof $pull_state) {
-        const [prob_states, char_res, wep_res] = calc_char_and_wep(state.charPity, state.charGuarantee, state.wepPity, state.wepGuarantee, state.wepFate, state.pulls)
+        const [prob_states, char_res, wep_res] = calc_char_and_wep(state.charPity, state.charGuarantee, Math.min(76, state.wepPity), state.wepGuarantee, state.wepFate, state.pulls)
 
         $probability_states = prob_states
         pullData = $graphType == 'char' ? char_res : wep_res
