@@ -5,14 +5,21 @@
     import InfoTitle from "./InfoTitle.svelte";
     import InfoDescription from "./InfoDescription.svelte";
     import Separator from "$lib/components/ui/separator/separator.svelte";
-  import { Label } from "$lib/components/ui/label";
+    import { Label } from "$lib/components/ui/label";
+    import DialogFooter from "$lib/components/ui/dialog/dialog-footer.svelte";
 
     $: open = false
+    function scrollToTop() {
+        setTimeout(() => {
+            const el =  document.getElementById('top')
+            el?.scrollIntoView({behavior: 'instant'})
+        }, 1)
+    }
 </script>
 
 <Dialog open={open} onOpenChange={o => open=o}>
     <DialogTrigger asChild>
-        <InfoModalButton on:click={() => open=true}/>
+        <InfoModalButton on:click={() => {open=true; scrollToTop()}}/>
     </DialogTrigger>
     <DialogContent>
         <DialogHeader>
@@ -22,7 +29,7 @@
             </DialogTitle>
             <DialogDescription class='max-h-[80vh] text-left'>
                 <ScrollArea class='h-[80vh]'>
-                    <div class='pr-2'>
+                    <div class='pr-2' id='top'>
                         <!-- Would make a smarter way to do this but not sure how to do it -->
                     <!-- Hardcode gaming it is -->
 
@@ -81,8 +88,10 @@
                     <div class='py-4'/>
                     </div>
                 </ScrollArea>
-                <Label class='text-xs'>Made by @sirderpyherp</Label>
             </DialogDescription>
         </DialogHeader>
+        <DialogFooter>
+            <Label class='text-xs'>Made by @sirderpyherp</Label>
+        </DialogFooter>
       </DialogContent>
 </Dialog>
