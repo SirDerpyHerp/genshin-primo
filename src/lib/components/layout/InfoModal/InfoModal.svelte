@@ -48,6 +48,7 @@
                             <li>Paimon's Bargains</li>
                             <li>Spiral Abyss</li>
                             <li>Paid Battle Pass</li>
+                            <li>4 Starglitter per 10x</li>
                         </ul>
                         <div class='py-1'/>
                         Most notably, the planner doesn't assume exploration, unless it's part of an event like GAA.
