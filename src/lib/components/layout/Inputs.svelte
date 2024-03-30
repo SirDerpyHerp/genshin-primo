@@ -10,15 +10,15 @@
     $: fatePointDisabled = false
     $: bpDisabled = true
     
-    function numInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee'>) {
+    function numInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee' | 'starglitter'>) {
         return (value: string) => $input_state[id] = value ? parseInt(value) : 0
     }
 
-    function checkboxInput(id: 'charGuarantee' | 'wepGuarantee') {
+    function checkboxInput(id: 'charGuarantee' | 'wepGuarantee' | 'starglitter') {
         return (checked: boolean) => $input_state[id] = checked
     }
 
-    function checkedNumInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee'>) {
+    function checkedNumInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee' | 'starglitter'>) {
         return (checked:boolean, value: string) => $input_state[id] = (checked ? parseInt(value) || 0 : 0)
     }
 
@@ -34,6 +34,7 @@
     <div class="grid gap-4 p-6 grid-cols-1 flex-1">
         <NoCheckboxNumInput input={numInput('primo')} title='Primogems' placeholder="Saved up primogems." canNegative/>
         <NoCheckboxNumInput input={numInput('pulls')} title="Pulls" placeholder="Saved up pulls" canNegative/>
+        <CheckboxInput input={checkboxInput('starglitter')} title="Use Starglitter for Pulls"/>
         <div class='grid gap-2'>
             <CheckboxInput input={checkboxInput('charGuarantee')} title="Character Guarantee"/>
             <NoCheckboxNumInput input={numInput('charPity')} title="Character Pity" placeholder="Pity in the character banner." max={89}/>

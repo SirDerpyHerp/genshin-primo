@@ -5,6 +5,7 @@ export type InputState = {
     ver: Version,
     primo: number
     pulls: number
+    starglitter: boolean
     charPity: number
     charGuarantee: boolean
     wepPity: number

@@ -7,6 +7,7 @@ export const input_state: Writable<InputState> = writable({
     ver: min_ver,
     primo: 0,
     pulls: 0,
+    starglitter: false,
     charPity: 0,
     charGuarantee: false,
     wepPity: 0,
