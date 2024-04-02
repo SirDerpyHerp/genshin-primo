@@ -23,14 +23,14 @@ export const events: Event[] = [
     {
         name: "Feline Fortress Furrdyssey",
         reward: 420,
-        start: DateTime.local(2024, 4, 4),
-        end: DateTime.local(2024, 4, 6),
+        start: DateTime.local(2024, 4, 8),
+        end: DateTime.local(2024, 4, 18),
     }
     ,
     {
         name: "Rolling Crossfire",
         reward: 420,
-        start: DateTime.local(2024, 4, 4),
-        end: DateTime.local(2024, 4, 6),
+        start: DateTime.local(2024, 4, 1),
+        end: DateTime.local(2024, 4, 10),
     }
 ]
