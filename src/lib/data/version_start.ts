@@ -1,11 +1,11 @@
 import type { Version } from "$lib/types/version"
 import { DateTime } from 'luxon'
 
-
+// Should really automate this
 export const min_ver: Version = {
     major: 4,
     minor: 5,
-    phase: 1
+    phase: 2
 }
 
 // Use 4.5 as the base
