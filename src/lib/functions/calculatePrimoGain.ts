@@ -6,6 +6,7 @@ import { DateTime } from 'luxon'
 
 const now = DateTime.now()
 const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
+const HAS_STREAM_HAPPENED = true
 
 function getVersionInt(ver: Version) {
     return (ver.minor + (ver.major - 4) * (assumed_last_minor_ver + 1)) * 2 + ver.phase
@@ -50,7 +51,7 @@ function calcPerVer(state: InputState) {
     const lastVer = getVersionInt(state.ver)
     const verCount = countOdd(currentVer, lastVer)
 
-    const streamCount = (lastVer - currentVer + 1) - verCount
+    const streamCount = (lastVer - currentVer + 1) - verCount - (HAS_STREAM_HAPPENED ? 1 : 0)
     const maintenancePrimos = (verCount - (min_ver.phase == 1 ? 1 : 0)) * 600
     const streamPrimos = streamCount * 300
 
