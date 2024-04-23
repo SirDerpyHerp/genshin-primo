@@ -14,6 +14,6 @@ export const base_ver: Version = {
     minor: 5,
     phase: 1
 }
-export const base_version_start = DateTime.utc(2024, 3, 13)
+export const base_version_start = DateTime.utc(2024, 3, 12, 22)
 
 export const assumed_last_minor_ver = 8

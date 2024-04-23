@@ -80,6 +80,9 @@
                 {#if dateDiff.days > 0}
                     {Math.floor(dateDiff.days)} days(s)
                 {/if}
+                {#if dateDiff.valueOf() < 24*60*60*1000}
+                    {'<1 day'}
+                {/if}
             </Label>
         </div>
         <Button class='ml-auto min-h-full max-w-16' variant="ghost" on:click={increment}>

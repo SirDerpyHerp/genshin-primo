@@ -34,7 +34,7 @@ function countOdd(l: number, r: number) {
 export function getUpdateDate(ver: Version): DateTime {
     const phaseGap = getVersionInt(ver) - getVersionInt(base_ver) + 1
 
-    return DateTime.fromMillis(base_version_start.valueOf() + phaseGap * 21 * MILLISECONDS_IN_DAY - MILLISECONDS_IN_DAY, {zone: 'utc'})
+    return DateTime.fromMillis(base_version_start.valueOf() + (phaseGap * 21 + 1) * MILLISECONDS_IN_DAY - MILLISECONDS_IN_DAY, {zone: 'utc'})
 }
 
 function calcDailies(state: InputState) {
