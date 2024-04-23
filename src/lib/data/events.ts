@@ -4,33 +4,32 @@ import { DateTime } from 'luxon'
 
 export const events_updated_until: Version = {
     major: 4,
-    minor: 5,
+    minor: 6,
     phase: 2
 }
 export const events: Event[] = [
     {
-        name: "Alchemical Ascension",
+        name: "Iridescent Arataki Rockin' For Life Tour de Force of Awesomeness",
         reward: 1000,
-        start: DateTime.local(2024, 3, 14),
-        end: DateTime.local(2024, 4, 1),
+        start: DateTime.local(2024, 5, 6),
+        end: DateTime.local(2024, 5, 26),
     },
     {
-        name: "The Great Fayz Reaction Debate",
+        name: "Vibro-Crystal Applications",
         reward: 420,
-        start: DateTime.local(2024, 3, 22),
-        end: DateTime.local(2024, 4, 3),
+        start: DateTime.local(2024, 4, 28),
+        end: DateTime.local(2024, 5, 8),
     },
     {
-        name: "Feline Fortress Furrdyssey",
+        name: "Specially-Shaped Saurian Search",
         reward: 420,
-        start: DateTime.local(2024, 4, 8),
-        end: DateTime.local(2024, 4, 18),
-    }
-    ,
+        start: DateTime.local(2024, 5, 16),
+        end: DateTime.local(2024, 5, 17),
+    },
     {
-        name: "Rolling Crossfire",
+        name: "Windtrace: Seekers and Strategy",
         reward: 420,
-        start: DateTime.local(2024, 4, 1),
-        end: DateTime.local(2024, 4, 10),
+        start: DateTime.local(2024, 5, 16),
+        end: DateTime.local(2024, 5, 17),
     }
 ]
