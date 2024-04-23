@@ -116,12 +116,12 @@ function calcEvents(state: InputState) {
         const ver = getVersionFromInt(i)
         if (ver.phase % 2 == 1) {
             // Mock Phase 1
-            eventPrimos.set(`${ver.major}.${ver.minor} flagship`, 1000)
-            eventPrimos.set(`${ver.major}.${ver.minor} minor event 1`, 420)
+            eventPrimos.set(`${ver.major}.${ver.minor} Flagship`, 1000)
+            eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 1`, 420)
         } else {
             // Mock Phase 2 
-            eventPrimos.set(`${ver.major}.${ver.minor} minor event 2`, 420)
-            eventPrimos.set(`${ver.major}.${ver.minor} minor event 3`, 420)
+            eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 2`, 420)
+            eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 3`, 420)
         }
     }
 
@@ -138,24 +138,24 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
     const newSourceMap = new Map<string, number>()
     const [welkinPrimos, dailyPrimos] = calcDailies(state)
 
-    newSourceMap.set('welkin', welkinPrimos)
-    newSourceMap.set('daily', dailyPrimos)
+    newSourceMap.set('Welkin', welkinPrimos)
+    newSourceMap.set('Daily', dailyPrimos)
 
     const [maintenancePrimos, streamPrimos] = calcPerVer(state)
 
-    newSourceMap.set(`maintenance`, maintenancePrimos)
-    newSourceMap.set(`stream`, streamPrimos)
+    newSourceMap.set(`Maintenance`, maintenancePrimos)
+    newSourceMap.set(`Stream`, streamPrimos)
 
     const paimonsBargainsPrimos = calcPaimonsBargains(state)
-    newSourceMap.set("paimon's bargains", paimonsBargainsPrimos)
+    newSourceMap.set("Paimon's Bargains", paimonsBargainsPrimos)
 
     const abyssPrimos = calcAbyss(state)
 
-    newSourceMap.set('abyss', abyssPrimos)
+    newSourceMap.set('Abyss', abyssPrimos)
 
     const bpPrimos = calcBP(state)
 
-    newSourceMap.set('battle pass', bpPrimos)
+    newSourceMap.set('Battle Pass', bpPrimos)
 
     const eventPrimos = calcEvents(state)
     let totalEventPrimos = 0
@@ -170,7 +170,7 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
     const glitterPulls = state.starglitter ? Math.floor(Math.floor(totalPullsPreGlitter/10) * 4/5) : 0
     const totalPulls = totalPullsPreGlitter + glitterPulls
 
-    newSourceMap.set('starglitter', glitterPulls*160)
+    newSourceMap.set('Starglitter', glitterPulls*160)
 
     const pull_state = {
         pulls: totalPulls,

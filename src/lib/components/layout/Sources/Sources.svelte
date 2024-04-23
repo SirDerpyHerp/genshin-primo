@@ -6,15 +6,6 @@
     import { ScrollArea } from "$lib/components/ui/scroll-area/";
     import SourceItem from "./SourceItem.svelte";
 
-    function toTitleCase(str: string) {
-        return str.replace(
-            /\w\S*/g,
-            function(txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        );
-    }
-
     $: currentState = $source_state
 </script>
 
@@ -28,7 +19,7 @@
             <div class="w-[calc(100%-0.75rem)]">
                 {#each [...currentState].sort((n1, n2) => (n2[1] > n1[1]) ? 1 : -1) as [id, amount]}
                     {#if amount > 0}
-                        <SourceItem title={toTitleCase(id)} amount={amount}/>
+                        <SourceItem title={id} amount={amount}/>
                     {/if}
                 {/each}
             </div>
