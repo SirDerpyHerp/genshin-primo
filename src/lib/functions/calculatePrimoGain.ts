@@ -6,7 +6,7 @@ import { DateTime } from 'luxon'
 
 const now = DateTime.now()
 const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
-const HAS_STREAM_HAPPENED = true
+const HAS_STREAM_HAPPENED = false
 
 function getVersionInt(ver: Version) {
     return (ver.minor + (ver.major - 4) * (assumed_last_minor_ver + 1)) * 2 + ver.phase
