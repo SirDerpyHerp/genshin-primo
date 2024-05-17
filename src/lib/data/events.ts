@@ -23,13 +23,13 @@ export const events: Event[] = [
     {
         name: "Specially-Shaped Saurian Search",
         reward: 420,
-        start: DateTime.local(2024, 5, 16),
-        end: DateTime.local(2024, 5, 17),
+        start: DateTime.local(2024, 5, 22),
+        end: DateTime.local(2024, 6, 2),
     },
     {
         name: "Windtrace: Seekers and Strategy",
         reward: 420,
-        start: DateTime.local(2024, 5, 16),
-        end: DateTime.local(2024, 5, 17),
+        start: DateTime.local(2024, 5, 14),
+        end: DateTime.local(2024, 5, 26),
     }
 ]
