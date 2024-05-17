@@ -1,12 +1,11 @@
 import { events, events_updated_until } from "$lib/data/events"
-import { assumed_last_minor_ver, base_ver, base_version_start, min_ver } from "$lib/data/version_start"
+import { assumed_last_minor_ver, base_ver, base_version_start, min_ver, HAS_STREAM_HAPPENED } from "$lib/data/version_start"
 import type { InputState } from "$lib/types/states"
 import type { Version } from "$lib/types/version"
 import { DateTime } from 'luxon'
 
 const now = DateTime.now()
 const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
-const HAS_STREAM_HAPPENED = false
 
 function getVersionInt(ver: Version) {
     return (ver.minor + (ver.major - 4) * (assumed_last_minor_ver + 1)) * 2 + ver.phase

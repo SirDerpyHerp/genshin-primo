@@ -15,5 +15,5 @@ export const base_ver: Version = {
     phase: 1
 }
 export const base_version_start = DateTime.utc(2024, 3, 12, 22)
-
+export const HAS_STREAM_HAPPENED = false
 export const assumed_last_minor_ver = 8
