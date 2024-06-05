@@ -45,7 +45,7 @@
             <NoCheckboxNumInput input={numInput('wepFate')} title="Weapon Fate Points" placeholder="Fate point in the weapon banner." max={2} disabled={fatePointDisabled}/>
         </div>
         <CheckboxNumInput input={checkedNumInput('welkin')} title="Welkin" placeholder="Days of welkin left."/>
-        <CheckboxNumInput input={checkedNumInput('abyss')} title="Abyss" placeholder="Number of abyss stars (0 - 36)" max={36}/>
+        <CheckboxNumInput input={checkedNumInput('abyss')} title="Abyss (Still 600 max)" placeholder="Number of abyss stars (0 - 36)" max={36}/>
         <!-- This shit is so hacked together I hate it -->
         <div class='grid gap-3'>
             <CheckboxNumInput input={bpInput} title="Paid BP" placeholder="Extra patches of paid BP."/>

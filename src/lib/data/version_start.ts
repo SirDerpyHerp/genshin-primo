@@ -4,8 +4,8 @@ import { DateTime } from 'luxon'
 // Should really automate this
 export const min_ver: Version = {
     major: 4,
-    minor: 6,
-    phase: 2
+    minor: 7,
+    phase: 1
 }
 
 // Use 4.5 as the base
