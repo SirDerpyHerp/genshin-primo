@@ -60,8 +60,20 @@ function calcPerVer(state: InputState) {
 function calcAbyss(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
     const monthsTilUpdate = Math.floor(dateToUpdate.diffNow('months').months)
-    const abyssResets = Math.max(0, (monthsTilUpdate - 1)*2) + (now.day > 1 && now.day < 16 ? 1 : 0) + (dateToUpdate.day > 1 ? 1 : 0) + (dateToUpdate.day > 16 ? 1 : 0)
+    const abyssResets = Math.max(0, (monthsTilUpdate - 1)*2)
+        + (now.day > 16 ? 0 : 1)
+        + (dateToUpdate.day > 16 ? (
+            dateToUpdate.month != now.month ? 1 : 0
+        ) : 1)
     const abyssPrimos = Math.floor(state.abyss/3) * 50 * abyssResets
+
+    console.log(Math.max(0, (monthsTilUpdate - 1)*2))
+    console.log((now.day > 16 ? 0 : 1))
+    console.log((dateToUpdate.day >= 16 ? (
+        dateToUpdate.month != now.month ? 1 : 0
+    ) : 1))
+
+    
 
     return abyssPrimos
 }
