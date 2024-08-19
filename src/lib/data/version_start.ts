@@ -3,8 +3,8 @@ import { DateTime } from 'luxon'
 
 // Should really automate this
 export const min_ver: Version = {
-    major: 4,
-    minor: 7,
+    major: 5,
+    minor: 0,
     phase: 1
 }
 
