@@ -15,14 +15,10 @@
     $: checked = writable(defaultOn)
     $: value = ''
 
-    function clamp(n: number, min: number, max: number) {
-        return Math.max(min, Math.min(n, max))
-    }
-
     function sanitizeAndBind(e: Event) {
         const target = e.target as HTMLTextAreaElement
         if (!target) return
-        
+
         const n = parseInt(target.value, 10)
         console.log(n, target.value)
         if (target.value == '') {
@@ -42,9 +38,10 @@
         }
 
         if (max) {
-            target.value = Math.min(parseInt(target.value.slice(0, Math.ceil(Math.log10(max)))), max).toString()
+            const num = parseInt(target.value)
+            target.value = (num > max ? value : num).toString()
         }
-
+        
         value = target.value
     }
 
