@@ -10,19 +10,19 @@
     $: fatePointDisabled = false
     $: bpDisabled = true
     
-    function numInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee' | 'starglitter'>) {
+    function numInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee' | 'starglitter' | 'wepFate'>) {
         return (value: string) => $input_state[id] = value ? parseInt(value) : 0
     }
 
-    function checkboxInput(id: 'charGuarantee' | 'wepGuarantee' | 'starglitter') {
+    function checkboxInput(id: 'charGuarantee' | 'wepGuarantee' | 'starglitter' | 'wepFate') {
         return (checked: boolean) => $input_state[id] = checked
     }
 
-    function checkedNumInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee' | 'starglitter'>) {
-        return (checked:boolean, value: string) => $input_state[id] = (checked ? parseInt(value) || 0 : 0)
+    function checkedNumInput(id: Exclude<InputStateKeys, 'events' | 'ver' | 'charGuarantee' | 'wepGuarantee' | 'starglitter' | 'wepFate'>) {
+        return (checked: boolean, value: string) => $input_state[id] = (checked ? parseInt(value) || 0 : 0)
     }
 
-    function bpInput(checked:boolean, value: string) {
+    function bpInput(checked: boolean, value: string) {
         bpDisabled = !checked
         $input_state['bpAmount'] = checked ? parseInt(value) || 0 : -1
     }
@@ -41,11 +41,12 @@
         </div>
         <div class='grid gap-2'>
             <CheckboxInput input={checkboxInput('wepGuarantee')} title="Wep Guarantee"/>
+            <CheckboxInput input={checkboxInput('wepFate')} title="Has Fate Point" disabled={fatePointDisabled}/>
             <NoCheckboxNumInput input={numInput('wepPity')} title="Weapon Pity" placeholder="Pity in the weapon banner." max={79}/>
-            <NoCheckboxNumInput input={numInput('wepFate')} title="Weapon Fate Points" placeholder="Fate point in the weapon banner." max={2} disabled={fatePointDisabled}/>
         </div>
         <CheckboxNumInput input={checkedNumInput('welkin')} title="Welkin" placeholder="Days of welkin left."/>
-        <CheckboxNumInput input={checkedNumInput('abyss')} title="Abyss (Still 600 max)" placeholder="Number of abyss stars (0 - 36)" max={36}/>
+        <CheckboxNumInput input={checkedNumInput('abyss')} title="Spiral Abyss" placeholder="Number of abyss stars (0 - 36)" max={36}/>
+        <CheckboxNumInput input={checkedNumInput('theater')} title="Imaginarium Theater" placeholder="Number of IT acts (0 - 10)" max={10}/>
         <!-- This shit is so hacked together I hate it -->
         <div class='grid gap-3'>
             <CheckboxNumInput input={bpInput} title="Paid BP" placeholder="Extra patches of paid BP."/>
