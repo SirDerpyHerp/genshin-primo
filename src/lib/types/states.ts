@@ -10,9 +10,10 @@ export type InputState = {
     charGuarantee: boolean
     wepPity: number
     wepGuarantee: boolean
-    wepFate: number
+    wepFate: boolean
     welkin: number
     abyss: number
+    theater: number
     bpAmount: number
     bpLevel: number
     events: Map<Event, number>

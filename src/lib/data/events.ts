@@ -4,7 +4,7 @@ import { DateTime } from 'luxon'
 
 export const events_updated_until: Version = {
     major: 5,
-    minor: 8,
+    minor: 0,
     phase: 2 // Always 2
 }
 export const events: Event[] = [
@@ -29,13 +29,23 @@ export const events: Event[] = [
     {
         name: "Of Thorns and Crowns",
         reward: 420,
-        start: DateTime.local(2024, 9, 19),
-        end: DateTime.local(2024, 9, 20),
+        start: DateTime.local(2024, 8, 28),
+        end: DateTime.local(2024, 9, 29),
     },
     {
         name: "Dodoco's Boom-Bastic Escapades",
         reward: 420,
         start: DateTime.local(2024, 9, 19),
         end: DateTime.local(2024, 9, 20),
+    },
+    {
+        name: "Mementos of Teyvat",
+        reward: 420,
+        start: DateTime.local(2024, 9, 19),
+        end: DateTime.local(2024, 9, 20),
     }
+]
+
+export const theaterPrimosPerAct = [
+    60, 60, 100, 60, 60, 100, 60, 120, 60, 120
 ]

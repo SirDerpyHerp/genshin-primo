@@ -1,4 +1,4 @@
-import { events, events_updated_until } from "$lib/data/events"
+import { events, events_updated_until, theaterPrimosPerAct } from "$lib/data/events"
 import { assumed_last_minor_ver, base_ver, base_version_start, min_ver, HAS_STREAM_HAPPENED } from "$lib/data/version_start"
 import type { InputState } from "$lib/types/states"
 import type { Version } from "$lib/types/version"
@@ -59,23 +59,24 @@ function calcPerVer(state: InputState) {
 
 function calcAbyss(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
-    const monthsTilUpdate = Math.floor(dateToUpdate.diffNow('months').months)
-    const abyssResets = Math.max(0, (monthsTilUpdate - 1)*2)
-        + (now.day > 16 ? 0 : 1)
-        + (dateToUpdate.day > 16 ? (
-            dateToUpdate.month != now.month ? 1 : 0
-        ) : 1)
-    const abyssPrimos = Math.floor(state.abyss/3) * 50 * abyssResets
+    const dateDiff = dateToUpdate.diffNow(['months', 'days', 'hours'])
+    const abyssResets = dateDiff.months + (now.daysInMonth - now.day + 16 < dateDiff.days ? 1 : 0)
 
-    console.log(Math.max(0, (monthsTilUpdate - 1)*2))
-    console.log((now.day > 16 ? 0 : 1))
-    console.log((dateToUpdate.day >= 16 ? (
-        dateToUpdate.month != now.month ? 1 : 0
-    ) : 1))
-
-    
+    const abyssPrimosPerCycle = Math.floor(state.abyss/3) * 50 + Math.floor(state.abyss/9) * 50
+    const abyssPrimos = abyssPrimosPerCycle * abyssResets
 
     return abyssPrimos
+}
+
+function calcTheater(state: InputState) {
+    const dateToUpdate = getUpdateDate(state.ver)
+    const dateDiff = dateToUpdate.diffNow(['months', 'days', 'hours'])
+    const theaterResets = dateDiff.months + (now.daysInMonth - now.day + 1 < dateDiff.days ? 1 : 0)
+
+    const theaterPrimosPerCycle = state.theater > 0 ? theaterPrimosPerAct.slice(0, state.theater).reduce((x, tot) => tot += x) : 0
+    const theaterPrimos = theaterPrimosPerCycle * theaterResets
+
+    return theaterPrimos
 }
 
 function calcBP(state: InputState) {
@@ -162,7 +163,11 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
 
     const abyssPrimos = calcAbyss(state)
 
-    newSourceMap.set('Abyss', abyssPrimos)
+    newSourceMap.set('Spiral Abyss', abyssPrimos)
+
+    const theaterPrimos = calcTheater(state)
+
+    newSourceMap.set('Imaginarium Theater', theaterPrimos)
 
     const bpPrimos = calcBP(state)
 

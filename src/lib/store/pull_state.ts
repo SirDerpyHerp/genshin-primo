@@ -12,9 +12,10 @@ export const input_state: Writable<InputState> = writable({
     charGuarantee: false,
     wepPity: 0,
     wepGuarantee: false,
-    wepFate: 0,
+    wepFate: false,
     welkin: 0,
     abyss: 0,
+    theater: 0,
     bpAmount: -1,
     bpLevel: 0,
     events: new Map<Event, number>
