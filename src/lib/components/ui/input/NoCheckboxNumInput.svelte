@@ -21,7 +21,6 @@
         if (!target) return
 
         const n = parseInt(target.value, 10)
-        console.log(n, target.value)
         if (target.value == '') {
             target.value = ''
             value = ''
@@ -39,8 +38,7 @@
         }
 
         if (max) {
-            const num = parseInt(target.value)
-            target.value = (num > max ? value : num).toString()
+            target.value = (n > max ? value : n).toString()
         }
         
         value = target.value
