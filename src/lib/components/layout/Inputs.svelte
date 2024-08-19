@@ -37,12 +37,12 @@
         <CheckboxInput input={checkboxInput('starglitter')} title="Use Starglitter for Pulls"/>
         <div class='grid gap-2'>
             <CheckboxInput input={checkboxInput('charGuarantee')} title="Character Guarantee"/>
-            <NoCheckboxNumInput input={numInput('charPity')} title="Character Pity" placeholder="Pity in the character banner." max={89}/>
+            <NoCheckboxNumInput input={numInput('charPity')} title="Character Pity" placeholder="Pity in the character banner. (0-89)" max={89}/>
         </div>
         <div class='grid gap-2'>
             <CheckboxInput input={checkboxInput('wepGuarantee')} title="Wep Guarantee"/>
             <CheckboxInput input={checkboxInput('wepFate')} title="Has Fate Point" disabled={fatePointDisabled}/>
-            <NoCheckboxNumInput input={numInput('wepPity')} title="Weapon Pity" placeholder="Pity in the weapon banner." max={79}/>
+            <NoCheckboxNumInput input={numInput('wepPity')} title="Weapon Pity" placeholder="Pity in the weapon banner. (0-79)" max={79}/>
         </div>
         <CheckboxNumInput input={checkedNumInput('welkin')} title="Welkin" placeholder="Days of welkin left."/>
         <CheckboxNumInput input={checkedNumInput('abyss')} title="Spiral Abyss" placeholder="Number of abyss stars (0 - 36)" max={36}/>
