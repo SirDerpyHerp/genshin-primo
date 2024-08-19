@@ -96,6 +96,7 @@
         } else if (graphType == 'wep') {
             for (let refine = 1; refine < 6; refine++) {
                 const data = [] as number[]
+                pity = Math.min(76, pity)
 
                 data.push((pullData[refine-1].slice(pity, pity+Math.floor(pullCount/points)+1).reduce((c, v) => c += v, 0) + (pity > 0 ? pullData[refine-1][0] : 0)) * 100)
                 for (let point = 2; point <= points; point++) {
