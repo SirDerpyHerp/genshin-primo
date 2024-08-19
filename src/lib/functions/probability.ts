@@ -22,7 +22,7 @@ export function calc_character(pity: number, pulls: number, guarantee: boolean) 
     const pity_sum = CHAR_CDF.slice(0, pity+1).reduce((cum, val) => cum += val, 0)
     let gf_coeffs: number[][] = Array<number[]>(2*(cons + 1))
 
-    pulls = Math.min(180*7 + 77*3*5, pulls)
+    pulls = Math.min(180*7 + 77*2*5, pulls)
     
     gf_coeffs[0] = Array<number>(pity + pulls + 92).fill(0)
     for (let i = pity+1; i < 91; i++) {
@@ -38,7 +38,7 @@ export function calc_character(pity: number, pulls: number, guarantee: boolean) 
         }   
     }
 
-    const non_guarantee_filer = [0, .5, .5]
+    const non_guarantee_filer = [0, .55, .45]
     const filter = guarantee ? [0, 1, 0] : non_guarantee_filer
     let path_gf_coeffs = Array<number[]>(cons + 1)
 
@@ -88,13 +88,13 @@ export function calc_weapon(pity: number, pulls: number, fate: number, guarantee
     const pity_sum = WEP_CDF.slice(0, pity+1).reduce((cum, val) => cum += val, 0)
     let gf_coeffs: number[][] = Array<number[]>(3*refine)
 
-    pulls = Math.min(180*7 + 77*3*5, pulls)
+    pulls = Math.min(180*7 + 77*2*5, pulls)
     
     gf_coeffs[0] = Array<number>(pity + pulls + 79).fill(0)
     for (let i = pity+1; i < 78; i++) {
         gf_coeffs[0][i] = WEP_CDF[i]/(1 - pity_sum)
     }
-    for (let i = 1; i < 3*refine; i++) {
+    for (let i = 1; i < 2*refine; i++) {
         gf_coeffs[i] = Array<number>(pity + pulls + 79).fill(0)
         for (let j = 1; j < Math.min(77*i+1, pulls+pity); j++) {
             const temp = gf_coeffs[i-1][j]
@@ -104,22 +104,20 @@ export function calc_weapon(pity: number, pulls: number, fate: number, guarantee
         }   
     }
 
-    const non_guarantee_filer = [0, 0.375, 0.265625, 0.359375] // [0 5*, 1 5*, 2 5*, 3 5*]
-    const filter = (fate == 0) ? (guarantee ? [0, 0.5, 0.1875, 0.3125] : non_guarantee_filer) :
-        (fate == 1) ? (guarantee ? [0, 0.5, 0.5, 0] : [0, 0.375, 0.625, 0]) : [0, 1, 0, 0]
+    const non_guarantee_filer = [0, 0.375, 0.625]
+    const filter = fate ? [0, 1, 0] : (guarantee ? [0, 0.5, 0.5] : non_guarantee_filer)
     let path_gf_coeffs = Array<number[]>(5)
 
-    path_gf_coeffs[0] = Array<number>(3*refine + 1).fill(0)
+    path_gf_coeffs[0] = Array<number>(2*refine + 1).fill(0)
     path_gf_coeffs[0][0] = filter[0]
     path_gf_coeffs[0][1] = filter[1]
     path_gf_coeffs[0][2] = filter[2]
-    path_gf_coeffs[0][3] = filter[3]
 
     for (let i = 1; i < refine; i++) {
-        path_gf_coeffs[i] = Array<number>(3*refine + 1).fill(0)
-        for (let j = 1; j < 3*i+1; j++) {
+        path_gf_coeffs[i] = Array<number>(2*refine + 1).fill(0)
+        for (let j = 1; j < 2*i+1; j++) {
             const temp = path_gf_coeffs[i-1][j]
-            for (let k = 0; k < 4; k++) {
+            for (let k = 0; k < 3; k++) {
                 path_gf_coeffs[i][j+k] += temp * non_guarantee_filer[k]
             }
         }
