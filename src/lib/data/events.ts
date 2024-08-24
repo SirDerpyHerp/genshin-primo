@@ -23,8 +23,8 @@ export const events: Event[] = [
     {
         name: "Gift for a New Horizon: A Thank-You Gift",
         reward: 1600,
-        start: DateTime.local(2024, 8, 28),
-        end: DateTime.local(2024, 9, 7),
+        start: DateTime.local(2024, 9, 28),
+        end: DateTime.local(2024, 10, 7),
     },
     {
         name: "Of Thorns and Crowns",
