@@ -129,6 +129,12 @@ function calcPaimonsBargains(state: InputState) {
     return monthsToUpdate*5*160
 }
 
+function calcTrial(state: InputState) {
+    const phaseCount = getVersionInt(state.ver) - getVersionInt(min_ver)
+
+    return phaseCount * 40
+}
+
 export function calculatePrimos(state: InputState): [number, typeof pull_state, Map<string, number>] {
     const newSourceMap = new Map<string, number>()
     const [welkinPrimos, dailyPrimos] = calcDailies(state)
@@ -155,6 +161,10 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
     const bpPrimos = calcBP(state)
 
     newSourceMap.set('Battle Pass', bpPrimos)
+
+    const trialPrimos = calcTrial(state)
+
+    newSourceMap.set('Character Trials', trialPrimos)
 
     const eventPrimos = calcEvents(state)
     let totalEventPrimos = 0
