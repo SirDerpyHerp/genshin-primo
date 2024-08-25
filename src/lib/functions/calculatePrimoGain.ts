@@ -176,7 +176,15 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
     const totalPrimos = state.primo + dailyPrimos + welkinPrimos + abyssPrimos + theaterPrimos + maintenancePrimos + paimonsBargainsPrimos + streamPrimos + bpPrimos + trialPrimos + totalEventPrimos
     const totalPullsPreGlitter = Math.max(0, Math.floor(totalPrimos/160) + state.pulls)
 
-    const glitterPulls = state.starglitter ? Math.floor(Math.floor(totalPullsPreGlitter/10) * 4/5) : 0
+    let glitterPulls = 0
+    if (state.starglitter) {
+        let lastGlitterPull = Math.floor(totalPullsPreGlitter/10 * 4/5)
+        while (lastGlitterPull >= 1) {
+            console.log(lastGlitterPull)
+            glitterPulls += lastGlitterPull
+            lastGlitterPull = Math.floor(lastGlitterPull/10 * 4/5)
+        }
+    }
     const totalPulls = totalPullsPreGlitter + glitterPulls
 
     newSourceMap.set('Starglitter', glitterPulls*160)
