@@ -7,17 +7,18 @@
     import MdChevronRight from 'svelte-icons/md/MdChevronRight.svelte'
     // @ts-ignore
     import MdChevronLeft from 'svelte-icons/md/MdChevronLeft.svelte'
-    import { assumed_last_minor_ver, min_ver } from '$lib/data/version_start';
+    import { min_ver, now } from '$lib/data/version_start';
     import { getUpdateDate } from '$lib/functions/calculatePrimoGain';
+    import { assumed_last_minor_ver } from '$lib/functions/versions';
 
     $: ver = {
         major: min_ver.major,
         minor: min_ver.minor,
         phase: min_ver.phase
     }
-    $: verString = `${ver.major}.${ver.minor}`
+    $: verString = `${ver.major}.${ver.minor}`  
     $: decrementEnable = false
-    $: dateDiff = getUpdateDate(ver).diffNow(['years', 'months', 'days', 'hours'])
+    $: dateDiff = getUpdateDate(ver).diff(now, ['years', 'months', 'days', 'hours'])
     
     function increment() {
         if (ver.phase == 1) {

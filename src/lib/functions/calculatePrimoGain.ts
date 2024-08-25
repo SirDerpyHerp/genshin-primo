@@ -1,30 +1,9 @@
 import { events, events_updated_until, theaterPrimosPerAct } from "$lib/data/events"
-import { assumed_last_minor_ver, base_ver, base_version_start, min_ver, HAS_STREAM_HAPPENED } from "$lib/data/version_start"
+import { base_ver, base_version_start, min_ver, HAS_STREAM_HAPPENED, MILLISECONDS_IN_DAY, now } from "$lib/data/version_start"
 import type { InputState } from "$lib/types/states"
 import type { Version } from "$lib/types/version"
 import { DateTime } from 'luxon'
-
-const now = DateTime.now()
-const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
-
-function getVersionInt(ver: Version) {
-    return (ver.minor + (ver.major - 4) * (assumed_last_minor_ver + 1)) * 2 + ver.phase
-}
-
-function getVersionFromInt(versionInt: number) {
-    const phase = versionInt % 2
-    if (phase % 2 == 1) {versionInt -= 1} else {versionInt -= 2}
-
-    const assumed_minor = versionInt / 2
-    const major = Math.floor(assumed_minor / (assumed_last_minor_ver + 1)) + 4
-    const minor = assumed_minor - (major - 4) * (assumed_last_minor_ver + 1)
-
-    return {
-        major: major,
-        minor: minor,
-        phase: (phase == 0 ? phase + 2 : phase)
-    }
-}
+import { getVersionInt, getVersionFromInt } from "./versions"
 
 function countOdd(l: number, r: number) {
     return Math.floor((r - l) / 2) + ((l % 2 != 0 || r % 2 != 0) ? 1 : 0)
@@ -37,7 +16,7 @@ export function getUpdateDate(ver: Version): DateTime {
 }
 
 function calcDailies(state: InputState) {
-    const daysTilUpdate = Math.floor(getUpdateDate(state.ver).diffNow('days').days)
+    const daysTilUpdate = Math.floor(getUpdateDate(state.ver).diff(now, 'days').days)
 
     const welkinPrimos = 90 * (daysTilUpdate > state.welkin ? state.welkin : daysTilUpdate)
     const dailyPrimos = 60 * daysTilUpdate
@@ -59,7 +38,7 @@ function calcPerVer(state: InputState) {
 
 function calcAbyss(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
-    const dateDiff = dateToUpdate.diffNow(['months', 'days', 'hours'])
+    const dateDiff = dateToUpdate.diff(now, ['months', 'days', 'hours'])
     const abyssResets = dateDiff.months + (now.daysInMonth - now.day + 16 < dateDiff.days ? 1 : 0)
 
     const abyssPrimosPerCycle = Math.floor(state.abyss/3) * 50 + Math.floor(state.abyss/9) * 50
@@ -70,7 +49,7 @@ function calcAbyss(state: InputState) {
 
 function calcTheater(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
-    const dateDiff = dateToUpdate.diffNow(['months', 'days', 'hours'])
+    const dateDiff = dateToUpdate.diff(now, ['months', 'days', 'hours'])
     const theaterResets = dateDiff.months + (now.daysInMonth - now.day + 1 < dateDiff.days ? 1 : 0)
 
     const theaterPrimosPerCycle = state.theater > 0 ? theaterPrimosPerAct.slice(0, state.theater).reduce((x, tot) => tot += x) : 0
@@ -86,7 +65,7 @@ function calcBP(state: InputState) {
     const verCount = countOdd(currentVer, lastVer) - (min_ver.phase == 1 ? 1 : 0)
 
     const nextPhaseDate = getUpdateDate(min_ver).plus({ days: 1 })
-    const daysTilNextPhase = Math.floor(nextPhaseDate.diffNow('days').days)
+    const daysTilNextPhase = Math.floor(nextPhaseDate.diff(now, 'days').days)
     const mondaysBetweenNowAndNextPhase = Math.floor(daysTilNextPhase / 7) + (now.weekday == 1 ? 2 : 1)
 
     const maxBP = Math.min(verCount, state.bpAmount)
@@ -115,6 +94,8 @@ function calcEvents(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
     const eventPrimos = new Map<string, number>
 
+    console.log(dateToUpdate.toJSDate())
+
     events.forEach((e) => {
         if (e.start.valueOf() > dateToUpdate.valueOf()) return;
         if (e.end.valueOf() < now.valueOf()) return;
@@ -124,16 +105,18 @@ function calcEvents(state: InputState) {
         eventPrimos.set(e.name, Math.floor(e.reward * eventLeft))
     })
 
-    for (let i = getVersionInt(events_updated_until) + 1; i <= getVersionInt(state.ver); i++) {
-        const ver = getVersionFromInt(i)
-        if (ver.phase % 2 == 1) {
-            // Mock Phase 1
-            eventPrimos.set(`${ver.major}.${ver.minor} Flagship`, 1000)
-            eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 1`, 420)
-        } else {
-            // Mock Phase 2 
-            eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 2`, 420)
-            eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 3`, 420)
+    if (getVersionInt(events_updated_until) > getVersionInt(min_ver)) {
+        for (let i = getVersionInt(events_updated_until) + 1; i <= getVersionInt(state.ver); i++) {
+            const ver = getVersionFromInt(i)
+            if (ver.phase % 2 == 1) {
+                // Mock Phase 1
+                eventPrimos.set(`${ver.major}.${ver.minor} Flagship`, 1000)
+                eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 1`, 420)
+            } else {
+                // Mock Phase 2 
+                eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 2`, 420)
+                eventPrimos.set(`${ver.major}.${ver.minor} Minor Event 3`, 420)
+            }
         }
     }
 
@@ -141,7 +124,7 @@ function calcEvents(state: InputState) {
 }
 
 function calcPaimonsBargains(state: InputState) {
-    const monthsToUpdate = Math.floor(getUpdateDate(state.ver).diffNow('months').months)
+    const monthsToUpdate = Math.floor(getUpdateDate(state.ver).diff(now, 'months').months)
 
     return monthsToUpdate*5*160
 }
