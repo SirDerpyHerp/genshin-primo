@@ -21,7 +21,7 @@ export const events: Event[] = [
         end: DateTime.local(2024, 9, 17),
     },
     {
-        name: "Gift for a New Horizon: A Thank-You Gift",
+        name: "Gift for a New Horizon",
         reward: 1600,
         start: DateTime.local(2024, 9, 28),
         end: DateTime.local(2024, 10, 7),
