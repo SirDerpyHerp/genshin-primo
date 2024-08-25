@@ -173,7 +173,7 @@ export function calculatePrimos(state: InputState): [number, typeof pull_state, 
         totalEventPrimos += val
     })
 
-    const totalPrimos = state.primo + dailyPrimos + welkinPrimos + abyssPrimos + maintenancePrimos + paimonsBargainsPrimos + streamPrimos + bpPrimos + totalEventPrimos
+    const totalPrimos = state.primo + dailyPrimos + welkinPrimos + abyssPrimos + theaterPrimos + maintenancePrimos + paimonsBargainsPrimos + streamPrimos + bpPrimos + trialPrimos + totalEventPrimos
     const totalPullsPreGlitter = Math.max(0, Math.floor(totalPrimos/160) + state.pulls)
 
     const glitterPulls = state.starglitter ? Math.floor(Math.floor(totalPullsPreGlitter/10) * 4/5) : 0
