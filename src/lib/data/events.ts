@@ -44,11 +44,25 @@ export const events: Event[] = [
         start: DateTime.local(2024, 9, 19),
         end: DateTime.local(2024, 9, 20),
     },
+
+    // Extras, not part of the regular flagship + 3 minor
     {
         name: "5.0 Archon Quest Completion Bonus",
         reward: 500,
         start: DateTime.local(2024, 8, 28),
-        end: DateTime.local(2024, 9, 8),
+        end: DateTime.local(2024, 10, 8),
+    },
+    {
+        name: "5.1 Archon Quest Completion Bonus",
+        reward: 500,
+        start: DateTime.local(2024, 10, 9),
+        end: DateTime.local(2024, 11, 19),
+    },
+    {
+        name: "5.3 Archon Quest Completion Bonus",
+        reward: 500,
+        start: DateTime.local(2025, 1, 1),
+        end: DateTime.local(2025, 2, 11),
     }
 ]
 
