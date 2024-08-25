@@ -2,8 +2,8 @@ import { getVersionFromInt, getVersionInt } from "$lib/functions/versions"
 import type { Version } from "$lib/types/version"
 import { DateTime } from 'luxon'
 
-// const now_nonUTC = DateTime.now()
-const now_nonUTC = DateTime.utc(2025, 2, 10)
+const now_nonUTC = DateTime.now()
+// const now_nonUTC = DateTime.utc(2025, 2, 10)
 export const now = (DateTime.utc(now_nonUTC.year, now_nonUTC.month, now_nonUTC.day) as unknown) as DateTime<true> // Ugly as hell, but utc can sometimes be invalid
 export const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
 
