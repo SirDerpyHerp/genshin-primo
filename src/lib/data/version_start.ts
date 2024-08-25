@@ -18,4 +18,4 @@ const diff_from_base = now.diff(base_version_start, ['days', 'hours'])
 const phase_diff_til_now = Math.floor(diff_from_base.days / 21)
 
 export const min_ver = getVersionFromInt(getVersionInt(base_ver) + phase_diff_til_now)
-export const HAS_STREAM_HAPPENED = false
+export const HAS_STREAM_HAPPENED = true
