@@ -43,6 +43,12 @@ export const events: Event[] = [
         reward: 420,
         start: DateTime.local(2024, 9, 19),
         end: DateTime.local(2024, 9, 20),
+    },
+    {
+        name: "5.0 Archon Quest Completion Bonus",
+        reward: 500,
+        start: DateTime.local(2024, 8, 28),
+        end: DateTime.local(2024, 9, 8),
     }
 ]
 
