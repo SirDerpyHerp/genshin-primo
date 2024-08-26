@@ -29,14 +29,14 @@ export const events: Event[] = [
     {
         name: "Of Thorns and Crowns",
         reward: 420,
-        start: DateTime.local(2024, 8, 28),
-        end: DateTime.local(2024, 9, 29),
+        start: DateTime.local(2024, 9, 19),
+        end: DateTime.local(2024, 9, 20),
     },
     {
         name: "Dodoco's Boom-Bastic Escapades",
         reward: 420,
-        start: DateTime.local(2024, 9, 19),
-        end: DateTime.local(2024, 9, 20),
+        start: DateTime.local(2024, 9, 9),
+        end: DateTime.local(2024, 9, 22),
     },
     {
         name: "Mementos of Teyvat",
