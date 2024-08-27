@@ -12,7 +12,7 @@ export const events: Event[] = [
         name: "Traces of Artistry",
         reward: 1000,
         start: DateTime.local(2024, 8, 28),
-        end: DateTime.local(2024, 9, 29),
+        end: DateTime.local(2024, 9, 15),
     },
     {
         name: "Brilliant Dawn",
