@@ -9,6 +9,10 @@ function countOdd(l: number, r: number) {
     return Math.floor((r - l) / 2) + ((l % 2 != 0 || r % 2 != 0) ? 1 : 0)
 }
 
+function mod(n: number, m: number) {
+    return ((n % m) + m) % m;
+}
+
 export function getUpdateDate(ver: Version): DateTime {
     const phaseGap = getVersionInt(ver) - getVersionInt(base_ver) + 1
 
@@ -39,7 +43,7 @@ function calcPerVer(state: InputState) {
 function calcAbyss(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
     const dateDiff = dateToUpdate.diff(now, ['months', 'days', 'hours'])
-    const abyssResets = dateDiff.months + (now.daysInMonth - now.day + 16 < dateDiff.days ? 1 : 0)
+    const abyssResets = dateDiff.months + (mod(16 - now.day, now.daysInMonth) < dateDiff.days ? 1 : 0)
 
     const abyssPrimosPerCycle = Math.floor(state.abyss/3) * 50 + Math.floor(state.abyss/9) * 50
     const abyssPrimos = abyssPrimosPerCycle * abyssResets
@@ -50,7 +54,7 @@ function calcAbyss(state: InputState) {
 function calcTheater(state: InputState) {
     const dateToUpdate = getUpdateDate(state.ver)
     const dateDiff = dateToUpdate.diff(now, ['months', 'days', 'hours'])
-    const theaterResets = dateDiff.months + (now.daysInMonth - now.day + 1 < dateDiff.days ? 1 : 0)
+    const theaterResets = dateDiff.months + (mod(1 - now.day, now.daysInMonth) < dateDiff.days ? 1 : 0)
 
     const theaterPrimosPerCycle = state.theater > 0 ? theaterPrimosPerAct.slice(0, state.theater).reduce((x, tot) => tot += x) : 0
     const theaterPrimos = theaterPrimosPerCycle * theaterResets
