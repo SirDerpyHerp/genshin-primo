@@ -7,6 +7,7 @@ export const events_updated_until: Version = {
     minor: 0,
     phase: 2 // Always 2
 }
+export const HAS_STREAM_HAPPENED = false
 export const events: Event[] = [
     {
         name: "Traces of Artistry",
@@ -24,13 +25,13 @@ export const events: Event[] = [
         name: "Gift for a New Horizon",
         reward: 1600,
         start: DateTime.local(2024, 9, 28),
-        end: DateTime.local(2024, 10, 7),
+        end: DateTime.local(2024, 10, 8),
     },
     {
         name: "Of Thorns and Crowns",
         reward: 420,
-        start: DateTime.local(2024, 9, 19),
-        end: DateTime.local(2024, 9, 20),
+        start: DateTime.local(2024, 9, 20),
+        end: DateTime.local(2024, 9, 29),
     },
     {
         name: "Dodoco's Boom-Bastic Escapades",
@@ -41,8 +42,8 @@ export const events: Event[] = [
     {
         name: "Mementos of Teyvat",
         reward: 420,
-        start: DateTime.local(2024, 9, 19),
-        end: DateTime.local(2024, 9, 20),
+        start: DateTime.local(2024, 9, 28),
+        end: DateTime.local(2024, 10, 7),
     },
 
     // Extras, not part of the regular flagship + 3 minor
