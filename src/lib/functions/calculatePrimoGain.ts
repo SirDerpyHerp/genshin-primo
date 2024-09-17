@@ -109,7 +109,7 @@ function calcEvents(state: InputState) {
         eventPrimos.set(e.name, Math.floor(e.reward * eventLeft))
     })
 
-    if (getVersionInt(events_updated_until) > getVersionInt(min_ver)) {
+    if (getVersionInt(state.ver) > getVersionInt(events_updated_until)) {
         for (let i = getVersionInt(events_updated_until) + 1; i <= getVersionInt(state.ver); i++) {
             const ver = getVersionFromInt(i)
             if (ver.phase % 2 == 1) {
