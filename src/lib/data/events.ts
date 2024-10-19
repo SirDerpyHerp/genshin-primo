@@ -4,60 +4,54 @@ import { DateTime } from 'luxon'
 
 export const events_updated_until: Version = {
     major: 5,
-    minor: 0,
+    minor: 1,
     phase: 2 // Always 2
 }
 export const HAS_STREAM_HAPPENED = false
 export const events: Event[] = [
     {
-        name: "Traces of Artistry",
+        name: "Chromatic Ode of Candies and Roses",
         reward: 1000,
-        start: DateTime.local(2024, 8, 28),
-        end: DateTime.local(2024, 9, 15),
+        start: DateTime.local(2024, 10, 30),
+        end: DateTime.local(2024, 10, 31),
     },
     {
-        name: "Brilliant Dawn",
-        reward: 1600,
-        start: DateTime.local(2024, 8, 30),
-        end: DateTime.local(2024, 9, 17),
-    },
-    {
-        name: "Gift for a New Horizon",
-        reward: 1600,
-        start: DateTime.local(2024, 9, 28),
-        end: DateTime.local(2024, 10, 8),
-    },
-    {
-        name: "Of Thorns and Crowns",
+        name: "Aphid Treasure Trace",
         reward: 420,
-        start: DateTime.local(2024, 9, 20),
-        end: DateTime.local(2024, 9, 29),
+        start: DateTime.local(2024, 10, 10),
+        end: DateTime.local(2024, 10, 20),
     },
     {
-        name: "Dodoco's Boom-Bastic Escapades",
+        name: "Reminiscent Regimen: Thrill",
         reward: 420,
-        start: DateTime.local(2024, 9, 9),
-        end: DateTime.local(2024, 9, 22),
+        start: DateTime.local(2024, 10, 17),
+        end: DateTime.local(2024, 10, 27),
     },
     {
-        name: "Mementos of Teyvat",
+        name: "Feast of Pursuit",
         reward: 420,
-        start: DateTime.local(2024, 9, 28),
-        end: DateTime.local(2024, 10, 7),
+        start: DateTime.local(2024, 10, 30),
+        end: DateTime.local(2024, 10, 31),
+    },
+    {
+        name: "Marvelous Merchandise",
+        reward: 380,
+        start: DateTime.local(2024, 10, 30),
+        end: DateTime.local(2024, 10, 31),
     },
 
     // Extras, not part of the regular flagship + 3 minor
-    {
-        name: "5.0 Archon Quest Completion Bonus",
-        reward: 500,
-        start: DateTime.local(2024, 8, 28),
-        end: DateTime.local(2024, 10, 8),
-    },
     {
         name: "5.1 Archon Quest Completion Bonus",
         reward: 500,
         start: DateTime.local(2024, 10, 9),
         end: DateTime.local(2024, 11, 19),
+    },
+    {
+        name: "Xilonen Story Quest",
+        reward: 500,
+        start: DateTime.local(2024, 10, 9),
+        end: DateTime.local(2024, 10, 29),
     },
     {
         name: "5.3 Archon Quest Completion Bonus",
