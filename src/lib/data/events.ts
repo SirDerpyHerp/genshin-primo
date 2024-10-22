@@ -49,7 +49,7 @@ export const events: Event[] = [
     },
     {
         name: "Xilonen Story Quest",
-        reward: 500,
+        reward: 60,
         start: DateTime.local(2024, 10, 9),
         end: DateTime.local(2024, 10, 29),
     },
