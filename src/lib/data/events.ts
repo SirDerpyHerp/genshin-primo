@@ -12,8 +12,8 @@ export const events: Event[] = [
     {
         name: "Chromatic Ode of Candies and Roses",
         reward: 1000,
-        start: DateTime.local(2024, 10, 30),
-        end: DateTime.local(2024, 10, 31),
+        start: DateTime.local(2024, 10, 23),
+        end: DateTime.local(2024, 11, 6),
     },
     {
         name: "Aphid Treasure Trace",
