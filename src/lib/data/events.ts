@@ -24,14 +24,14 @@ export const events: Event[] = [
     {
         name: "Exercise Surging Storm",
         reward: 420,
-        start: DateTime.local(2024, 12, 10),
-        end: DateTime.local(2024, 12, 10),
+        start: DateTime.local(2024, 12, 18),
+        end: DateTime.local(2024, 12, 29),
     },
     {
         name: "Adventurer's Trials: Metamorphosis",
         reward: 420,
-        start: DateTime.local(2024, 12, 10),
-        end: DateTime.local(2024, 12, 10),
+        start: DateTime.local(2024, 12, 11),
+        end: DateTime.local(2024, 12, 22),
     },
 
 
