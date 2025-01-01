@@ -4,43 +4,54 @@ import { DateTime } from 'luxon'
 
 export const events_updated_until: Version = {
     major: 5,
-    minor: 2,
+    minor: 3,
     phase: 2 // Always 2
 }
 export const HAS_STREAM_HAPPENED = false
 export const events: Event[] = [
     {
-        name: "Iktomi Spiritseeking Scrolls",
+        name: "Springtime Charms",
         reward: 1000,
-        start: DateTime.local(2024, 11, 28),
-        end: DateTime.local(2024, 12, 15),
+        start: DateTime.local(2025, 1, 22),
+        end: DateTime.local(2025, 2, 10),
     },
     {
-        name: "Claw Convoy",
-        reward: 420,
-        start: DateTime.local(2024, 11, 22),
-        end: DateTime.local(2024, 12, 1),
+        name: "May Fortune Find You: Spring's Premonition",
+        reward: 3200,
+        start: DateTime.local(2025, 1, 22),
+        end: DateTime.local(2025, 2, 10),
     },
     {
-        name: "Exercise Surging Storm",
+        name: "Shuyu's Baffling Beetle Battle Bowl",
         reward: 420,
-        start: DateTime.local(2024, 12, 18),
-        end: DateTime.local(2024, 12, 29),
+        start: DateTime.local(2025, 1, 3),
+        end: DateTime.local(2025, 1, 12),
     },
     {
-        name: "Adventurer's Trials: Metamorphosis",
+        name: "Emblem of Steadfast Valor",
         reward: 420,
-        start: DateTime.local(2024, 12, 11),
-        end: DateTime.local(2024, 12, 22),
+        start: DateTime.local(2025, 1, 9),
+        end: DateTime.local(2025, 1, 19),
     },
-
+    {
+        name: "On the Trail of Behemoths",
+        reward: 420,
+        start: DateTime.local(2025, 1, 14),
+        end: DateTime.local(2025, 1, 26),
+    },
 
     // Extras, not part of the regular flagship + 3 minor
     {
-        name: "Chasca Story Quest",
+        name: "Mavuika Story Quest",
         reward: 60,
-        start: DateTime.local(2024, 11, 20),
-        end: DateTime.local(2024, 12, 9),
+        start: DateTime.local(2025, 1, 1),
+        end: DateTime.local(2025, 1, 20),
+    },
+    {
+        name: "Citlali Story Quest",
+        reward: 60,
+        start: DateTime.local(2025, 1, 1),
+        end: DateTime.local(2025, 1, 20),
     },
     {
         name: "5.3 Archon Quest Completion Bonus",
