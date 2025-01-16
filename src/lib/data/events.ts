@@ -12,13 +12,19 @@ export const events: Event[] = [
     {
         name: "Springtime Charms",
         reward: 1000,
+        start: DateTime.local(2025, 1, 24),
+        end: DateTime.local(2025, 2, 8),
+    },
+    {
+        name: "Fortune's Coming",
+        reward: 1600,
         start: DateTime.local(2025, 1, 22),
         end: DateTime.local(2025, 2, 10),
     },
     {
-        name: "May Fortune Find You: Spring's Premonition",
-        reward: 3200,
-        start: DateTime.local(2025, 1, 22),
+        name: "Old Memories, New Beginnings",
+        reward: 1600,
+        start: DateTime.local(2025, 2, 1),
         end: DateTime.local(2025, 2, 10),
     },
     {
